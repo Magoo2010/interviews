@@ -25,6 +25,7 @@ class Students {
 	public $date_updated;
 	public $confirmed_attendance;
 	public $allow_feedback;
+	public $location_type;
 	
 	public static function find_by_sql($sql="") {
 		global $database;

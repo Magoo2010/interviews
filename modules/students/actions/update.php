@@ -1,7 +1,16 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . 'engine/initialise.php');
+//require_once($_SERVER['DOCUMENT_ROOT'] . 'engine/initialise.php');
+require_once('../../../engine/initialise.php');
 
-if (isset($_POST['userUID'])) {
+
+
+if (isset($_POST['uid'])) {
+	$user = new Students();
+	
+	foreach ($_POST AS $key => $value) {
+		$user->$key = $value;
+	}
+	/*
 	$user = new Students();
 	$user->uid = $_POST['userUID'];
 	$user->title = $_POST['title'];
@@ -21,7 +30,8 @@ if (isset($_POST['userUID'])) {
 	$user->disability = $_POST['disability'];
 	$user->diet = $_POST['diet'];
 	$user->allow_feedback = $_POST['feedback'];
-	
+	$user->location_type = $_POST['location_type'];
+	*/
 	if ($user->update()) {
 		$message = "<div class=\"alert alert-success\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Success!</strong> Yours details have been updated, and you have confirmed you're coming on the {{DATE}}</div>";
 	} else {
@@ -29,5 +39,6 @@ if (isset($_POST['userUID'])) {
 	}
 	
 	echo $message;
+
 }
 ?>

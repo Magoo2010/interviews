@@ -5,12 +5,13 @@
 	<title>St. Edmund Hall - Interviews Booking Site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/typeahead.min.js"></script>
+	<script src="js/interviews.js"></script>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="ICT Facilities, Wallingford School" />
+	<meta name="author" content="Andrew Breakspear, St. Edmund Hall" />
 	<meta name="description" content="St. Edmund Hall Interviews" />
 	<meta name="keywords" content="oxford, university, interviews, st. edmund, teddy" />
 	<meta name="robots" content="index, follow, noarchive" />

@@ -48,7 +48,7 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 	<div class="col-lg-3">
 		<?php echo $user->imageURL(true); ?>
 		<div class="clearfix"></div>
-		<form id="addToRemoveForm" method="post" action="index.php?m=students&n=user.php&studentUID=<?php echo $user->uid; ?>" enctype="multipart/form-data">
+		<form id="addToRemoveForm">
 		<div class="control-group">
 			<div class="controls">
 				<input class="input-file" id="fileInput" name="fileInput" type="file">
@@ -131,6 +131,10 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 							<span class="help-block">We will use this E-Mail address to confirm the receipt of these details.</span>
 						</div>
 					</div>
+					
+					<?php
+					if ($user->location_type == "Overseas") {
+					?>
 					<div class="form-group">
 						<label for="inputSkype" class="col-lg-2 control-label">Skype ID</label>
 						<div class="col-lg-10">
@@ -138,7 +142,12 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 							<span class="help-block">Please note that Skype interviews can only be requested by overseas candidates.</span>
 						</div>
 					</div>
+					<?php
+					}
+					?>
+					
 					<hr />
+					
 					<div class="form-group">
 						<label for="inputPhone" class="col-lg-2 control-label">Contact Telephone Number</label>
 						<div class="col-lg-10">
@@ -192,19 +201,27 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 					<div class="form-group">
 						<label for="inputFeedback" class="col-lg-2 control-label">Allow Feedback To Referee</label>
 						<div class="col-lg-10">
-							<input type="checkbox" class="form-control" id="inputFeedback" value="1">
+							<?php
+							if ($user->allow_feedback == "1") {
+								echo "<input type=\"checkbox\" class=\"form-control\" id=\"inputFeedback\" checked>";
+							} else {
+								echo "<input type=\"checkbox\" class=\"form-control\" value=\"1\" id=\"inputFeedback\" >";
+							}
+							?>
+							
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-lg-10 col-offset-2">
+						<div class="col-lg-10 col-lg-offset-2">
 							<button type="submit" class="btn btn-primary btn-block" id="submit_form">Submit</button>
 							<input type="hidden" id="userUID" value="<?php echo $user->uid; ?>">
+							<p class="lead">If you have any problems with this site please email <a href="mailto:admissions@seh.ox.ac.uk">admissions@seh.ox.ac.uk</a></p>
 						</div>
 					</div>
 					<div id="response_added"></div>
 				</form>
 				
-				<p class="lead col-offset-2">If you have any problems with this site please email <a href="mailto:admissions@seh.ox.ac.uk">admissions@seh.ox.ac.uk</a></p>
+				
 
 			<div class="clearfix"></div>
 		<p><button class="btn btn-default btn-small pull-right" disabled="disabled" type="button">Last Modified <?php echo convertToDateString($user->date_updated); ?></button></p>

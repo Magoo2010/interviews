@@ -1,3 +1,4 @@
+$(document).ready(function(){    
 $("#submit_form").click(function() {
 	$("#submit_form").addClass("disabled");
 	
@@ -32,7 +33,7 @@ $("#submit_form").click(function() {
 	var url = "modules/students/actions/update.php";
 	
 	$.post(url,{
-		userUID: userUID,
+		uid: userUID,
 		title: title,
 		forenames: forenames,
 		surname: surname,
@@ -49,13 +50,18 @@ $("#submit_form").click(function() {
 		arrival_time: arrival_time,
 		disability: disability,
 		diet: diet,
-		feedback: feedback
+		allow_feedback: feedback
 	}, function(data) {
 		$("#response_added").append(data);
 	},'html');
 	
 	return false;
 });
+
+
+
+
+
 
 $("#submit_contact_form").click(function() {
 	// validate and process form here
@@ -140,3 +146,5 @@ $("#email_insert_surname").click(function() {
 });
 
 $('#dp3').datepicker();
+
+});
