@@ -182,96 +182,96 @@ $arrivalDates = interviewArrivalDates();
 				</div>
 				
 				<div class="tab-pane fade" id="addnew">
-					<form class="form-horizontal">
-					<div class="control-group">
-						<label class="control-label" for="inputTitle">Title</label>
-						<div class="controls">
-							<input type="text" id="inputTitle" placeholder="Title">
+					<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputTitle">Title</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle" placeholder="Title">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputForenames">Forename(s)</label>
-						<div class="controls">
-							<input type="text" id="inputForenames" placeholder="Forename(s)">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputForenames">Forename(s)</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputForenames" placeholder="Forename(s)">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputSurname">Surname</label>
-						<div class="controls">
-							<input type="text" id="inputSurname" placeholder="Surname">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputSurname">Surname</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputSurname" placeholder="Surname">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputCourse">Course of Study</label>
-						<div class="controls">
-							<input type="text" id="inputCourse" placeholder="Course of Study">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputCourse">Course of Study</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputCourse" placeholder="Course of Study">
 						</div>
 					</div>
 					
 					<hr />
 					
-					<div class="control-group">
-						<label class="control-label" for="inputAdd1">Address Line 1</label>
-						<div class="controls">
-							<input type="text" id="inputAdd1" placeholder="Address Line 1">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputAdd1">Address Line 1</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputAdd1" placeholder="Address Line 1">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputAdd2">Address Line 2</label>
-						<div class="controls">
-							<input type="text" id="inputAdd2" placeholder="Address Line 2">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputAdd2">Address Line 2</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputAdd2" placeholder="Address Line 2">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputAdd1">Address Line 3</label>
-						<div class="controls">
-							<input type="text" id="inputAdd3" placeholder="Address Line 3">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputAdd1">Address Line 3</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputAdd3" placeholder="Address Line 3">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputAdd4">Address Line 4</label>
-						<div class="controls">
-							<input type="text" id="inputAdd4" placeholder="Address Line 4">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputAdd4">Address Line 4</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputAdd4" placeholder="Address Line 4">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputAdd5">Address Line 5</label>
-						<div class="controls">
-							<input type="text" id="inputAdd5" placeholder="Address Line 5">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputAdd5">Address Line 5</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputAdd5" placeholder="Address Line 5">
 						</div>
 					</div>
 					
 					<br />
 					
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">E-Mail Address</label>
-						<div class="controls">
-							<input type="text" id="inputEmail" placeholder="Email Address">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputEmail">E-Mail Address</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputEmail" placeholder="Email Address">
 							<span class="help-block">This E-Mail address will be used to send the confirmation E-Mail.</span>
 						</div>
 					</div>
 					
 					<hr />
 					
-					<div class="control-group">
-						<label class="control-label" for="inputPhone">Contact Telephone Number</label>
-						<div class="controls">
-							<input type="text" id="inputPhone" placeholder="Contact Telephone Number">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputPhone">Contact Telephone Number</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputPhone" placeholder="Contact Telephone Number">
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputSkype">Skype ID</label>
-						<div class="controls">
-							<input type="text" id="inputSkype" placeholder="Skype ID (if available)">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputSkype">Skype ID</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputSkype" placeholder="Skype ID (if available)">
 						</div>
 					</div>
 					
 					<hr />
 					
-					<div class="control-group">
-						<label class="control-label" for="inputDate">I shall arrive in Oxford on</label>
-						<div class="controls">
-							<select id="inputDate">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputDate">I shall arrive in Oxford on</label>
+						<div class="col-lg-10">
+							<select class="form-control" id="inputDate">
 								<?php
 								foreach ($arrivalDates AS $date) {
 									echo "<option>" . date('l jS \of F Y', strtotime($date)) . "</option>";
@@ -281,10 +281,10 @@ $arrivalDates = interviewArrivalDates();
 							USE THIS TO SUGEST TO STUDENTS
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputTime">Time</label>
-						<div class="controls">
-							<select id="inputTime">
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputTime">Time</label>
+						<div class="col-lg-10">
+							<select class="form-control" id="inputTime">
 								<option>8:00 am</option>
 								<option>8:00 am</option>
 								<option>8:00 am</option>
@@ -297,28 +297,28 @@ $arrivalDates = interviewArrivalDates();
 					
 					<hr />
 					
-					<div class="control-group">
-						<label class="control-label" for="inputDisability">Disability</label>
-						<div class="controls">
-							<textarea rows="3" id="inputDisability"></textarea>
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputDisability">Disability</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="3" id="inputDisability"></textarea>
 							<span class="help-block">Please list any disability which may require special arrangements to be made.</span>
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputDiet">Dietary Requirements</label>
-						<div class="controls">
-							<textarea rows="3" id="inputDiet"></textarea>
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputDiet">Dietary Requirements</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="3" id="inputDiet"></textarea>
 							<span class="help-block">Please list any special dietary requirements.</span>
 						</div>
 					</div>
 					
-					<div class="control-group">
-						<div class="controls">
-							 <label class="checkbox">
-							 	<input type="checkbox" id="sendEmail" value="true">E-Mail candidate confirmation letter
-							 </label>
+					<div class="form-group">
+						<div class="col-lg-10 col-lg-offset-2">
+							<input class="form-control" type="checkbox" id="sendEmail" value="true">E-Mail candidate confirmation letter
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
+						oversees / home / eu
+						allow_feedback
 					</div>
 				</form>
 				</div>

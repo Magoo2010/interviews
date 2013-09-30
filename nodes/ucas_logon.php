@@ -1,47 +1,4 @@
-<?php
-//log them out?
-if (isset($_GET['logout'])) {
-	if ($_GET['logout'] == true) { //destroy the session
-		$_SESSION = array();
-		$_SESSION['username'] = null;
-		session_destroy();
-		
-		$message = "<div class=\"alert alert-success\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Success!</strong> You have been logged out.</div>";
-	}
-}
 
-//you should look into using PECL filter or some form of filtering here for POST variables
-if (isset($_POST["inputUCAS"])) {
-	$ucas = $_POST["inputUCAS"];
-	$surname = strtoupper($_POST["inputSurname"]); //remove case sensitivity on the surname
-	
-	if ($ucas != NULL && $surname != NULL) {
-		//authenticate the user
-		$user = Students::logon($surname, $ucas);
-		
-		if ($user) {
-			$log = new Logs();
-			$log->type = "info";
-			$log->title = "User Logon";
-			$log->description = $user->fullDisplayName() . " logged on";
-			$log->userUID = $user->uid;
-			$log->create();
-			
-			//establish your session and redirect
-			session_start();
-			$_SESSION["username"] = $user->ucas;
-			$_SESSION["localUID"] = $user->uid;
-			
-			$redir = "Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?m=students&n=user.php&studentUID=" . $user->uid;
-			header($redir);
-			exit;
-		} else {
-			$message = "<div class=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Warning!</strong> Login attempt failed.</div>";
-		}
-	}
-}
-
-?>
 <style>
 .form-signin {
   max-width: 330px;

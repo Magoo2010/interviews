@@ -12,10 +12,10 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.php">Home</a></li>
 				<?php
-				if (isset($_SESSION['username'])) {
+				if (isset($_SESSION['userinfo'])) {
 					echo "<li><a href=\"index.php?m=students&n=index.php\">Students</a></li>";
 				} else {
-					echo "<li><a href=\"index.php?m=students&n=index.php\">My Details</a></li>";
+					echo "<li><a href=\"index.php?m=students&n=user.php&studentUID=" . $_SESSION['localUID'] . "\">My Details</a></li>";
 				}
 				?>
 				
@@ -32,6 +32,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="index.php?n=logon.php">Admin. Logon</a></li>
 						<li><a href="index.php?m=reports&n=index.php">Reports</a></li>
+						<li><a href="index.php?m=settings&n=email_admin.php">E-Mail Settings</a></li>
 						<li class="divider"></li>
 						<li><a href="index.php?n=ucas_logon.php&logout=true">Log Out</a></li>
 					</ul>
