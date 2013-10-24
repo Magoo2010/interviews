@@ -52,6 +52,6 @@
 		</form>
 	</div>
 	
-	<p>Please note that a booking using this website will not be accepted unless you have had explicit instructions from St Edmund Hall to do so.</p>
+	<p>Please note that an interview RSVP submitted using this website will not be accepted unless you have received an invitation from St Edmund Hall with explicit instructions to do so.</p>
 	<p>If you have any problems with this site please email admissions@seh.ox.ac.uk</p>
 </div>
