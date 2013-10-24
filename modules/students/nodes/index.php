@@ -37,9 +37,9 @@ $arrivalDates = interviewArrivalDates();
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
-							<th>UCAS Number</th>
+							<th>UCAS ID Number</th>
 							<th>Full Name</th>
-							<th>E-Mail</th>
+							<th>Subject</th>
 							<th>Data Checks</th>
 						</tr>
 						</thead>
@@ -49,7 +49,7 @@ $arrivalDates = interviewArrivalDates();
 							echo "<tr>";
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
-							echo "<td>" . $user->email . "</a></td>";
+							echo "<td>" . $user->course . "</a></td>";
 							echo "<td>";
 								echo "<div class=\"btn-group\">";
 								// email check
@@ -138,9 +138,10 @@ $arrivalDates = interviewArrivalDates();
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
-							<th>BodCard</th>
+							<th>UCAS ID Number</th>
 							<th>Full Name</th>
-							<th>Full Name</th>
+							<th>Subject</th>
+							<th>Data Checks</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -149,7 +150,8 @@ $arrivalDates = interviewArrivalDates();
 							echo "<tr>";
 							echo "<td>" . $user->uid . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
-							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
+							echo "<td>" . $user->course . "</a></td>";
+							echo "<td>datachecks</td>";
 							echo "</tr>";
 						}
 						?>
@@ -162,9 +164,10 @@ $arrivalDates = interviewArrivalDates();
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
-							<th>BodCard</th>
+							<th>UCAS ID Number</th>
 							<th>Full Name</th>
-							<th>Full Name</th>
+							<th>Subject</th>
+							<th>Data Checks</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -173,7 +176,8 @@ $arrivalDates = interviewArrivalDates();
 							echo "<tr>";
 							echo "<td>" . $user->uid . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
-							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
+							echo "<td>" . $user->course . "</a></td>";
+							echo "<td>datachecks</td>";
 							echo "</tr>";
 						}
 						?>
