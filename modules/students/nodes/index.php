@@ -113,6 +113,17 @@ $arrivalDates = interviewArrivalDates();
 									$buttonImage = "<i class=\"icon-picture\"></i>";
 									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 								}
+								// opt-out check
+								if ($user->allow_feedback == 0) {
+									$altText = "User has selected 'opt-out'";
+									$buttonImage = "<i class=\"icon-comments\"></i>";
+									
+									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-danger\">" . $buttonImage . "</a>";
+								} else {
+									$altText = "User has not selected 'opt-out'";
+									$buttonImage = "<i class=\"icon-comments\"></i>";
+									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
+								}
 								
 								echo "</div>";
 							/*
