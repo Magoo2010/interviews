@@ -55,7 +55,8 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 			</div>
 		</div>
 		<div class="control-group">
-			<input type="submit" class="btn btn-small btn-primary btn-block" id="test" value="Upload Photograph" />
+			<br /><input type="submit" class="btn btn-small btn-primary btn-block" id="test" value="Upload Photograph" />
+			<p class="help-block">Please upload a photo of yourself. Photos should be in colour and should show a close-up of your full head and shoulders. It must be only of you with no other objects or people, and should be unaltered by computer software.</p>
 		</div>
 		</form>
 	</div>
