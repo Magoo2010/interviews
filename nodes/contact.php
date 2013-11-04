@@ -25,9 +25,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputName" class="col-lg-3 control-label">E-Mail Address</label>
+				<label for="inputEmail" class="col-lg-3 control-label">E-Mail Address</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control"  name="inputName" id="inputName" placeholder="E-Mail Address">
+					<input type="text" class="form-control"  name="inputEmail" id="inputEmail" placeholder="E-Mail Address">
 				</div>
 			</div>
 			<div class="form-group">
@@ -39,11 +39,13 @@
 			<div class="form-group">
 				<div class="col-lg-9 col-lg-offset-3">
 					<button type="submit" id="submit_contact_form" class="btn btn-primary btn-block">Submit</button>
+					<div id="response_added" class="response_added"></div>
 				</div>
 			</div>
 		</div>
 		</form>
 	</div>
+	
 	<div class="col-lg-6">
 		<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;cid=6124179039500755829&amp;q=St.+Edmund+Hall&amp;gl=GB&amp;hl=en&amp;t=m&amp;ll=51.753948,-1.249115&amp;spn=0.006376,0.013733&amp;z=16&amp;iwloc=A&amp;output=embed"></iframe>
 	</div>

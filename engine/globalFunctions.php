@@ -36,10 +36,8 @@ function sendEmail($recipientAddress = null, $recipientName=null, $messageSubjec
 	$mail->From = "no-reply@seh.ox.ac.uk";
 	$mail->FromName = "St Edmund Hall: Interviews";
 	
-	$mail->AddAddress("andrew.breakspear@seh.ox.ac.uk", "Andrew");
-	$mail->AddReplyTo("no-reply@seh.ox.ac.uk", "St Edmund Hall: Interviews");
-	
-	//$mail->AddAttachment($fileLocation);  // add attachments
+	$mail->AddAddress($recipientAddress, $recipientName);
+	$mail->AddReplyTo("admissions@seh.ox.ac.uk", "St Edmund Hall: Admissions");
 	
 	$mail->Subject = $messageSubject;
 	$mail->Body = $messageBody;
