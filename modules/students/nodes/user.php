@@ -225,7 +225,7 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 				
 
 			<div class="clearfix"></div>
-		<p><button class="btn btn-default btn-small pull-right" disabled="disabled" type="button">Last Modified <?php echo convertToDateString($user->date_updated); ?></button></p>
+		<p><button class="btn btn-default btn-sm pull-right" disabled="disabled" type="button">Last Modified <?php echo convertToDateString($user->date_updated); ?></button></p>
 			</div>
 			<div class="tab-pane fade" id="logs">
 				<table class="table table-bordered table-striped">
