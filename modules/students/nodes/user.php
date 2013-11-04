@@ -48,7 +48,7 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 	<div class="col-lg-3">
 		<?php echo $user->imageURL(true); ?>
 		<div class="clearfix"></div>
-		<form id="addToRemoveForm">
+		<form id="addToRemoveForm" target="_self" method="post" enctype="multipart/form-data">
 		<div class="control-group">
 			<div class="controls">
 				<input class="input-file" id="fileInput" name="fileInput" type="file">
