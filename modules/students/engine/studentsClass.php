@@ -236,6 +236,44 @@ class Students {
 			return false; // something when wrong with updatings the db
 		}
 	}
+	
+	public function create() {
+		global $database;
+		
+		$sql  = "INSERT INTO " . self::$table_name . " (";
+		$sql .= "ucas, title, forenames, surname, course, add1, add2, add3, add4, add5, email, phone, skype, arrival_date, arrival_time, disability, diet, photograph, date_created, date_updated, confirmed_attendance, allow_feedback, location_type";
+		$sql .= ") VALUES ('";
+		$sql .= $database->escape_value($this->ucas) . "', '";
+		$sql .= $database->escape_value($this->title) . "', '";
+		$sql .= $database->escape_value($this->forenames) . "', '";
+		$sql .= $database->escape_value($this->surname) . "', '";
+		$sql .= $database->escape_value($this->course) . "', '";
+		$sql .= $database->escape_value($this->add1) . "', '";
+		$sql .= $database->escape_value($this->add2) . "', '";
+		$sql .= $database->escape_value($this->add3) . "', '";
+		$sql .= $database->escape_value($this->add4) . "', '";
+		$sql .= $database->escape_value($this->add5) . "', '";
+		$sql .= $database->escape_value($this->email) . "', '";
+		$sql .= $database->escape_value($this->phone) . "', '";
+		$sql .= $database->escape_value($this->skype) . "', '";
+		$sql .= $database->escape_value($this->arrival_date) . "', '";
+		$sql .= $database->escape_value($this->arrival_time) . "', '";
+		$sql .= $database->escape_value($this->disability) . "', '";
+		$sql .= $database->escape_value($this->diet) . "', '";
+		$sql .= $database->escape_value($this->photograph) . "', '";
+		$sql .= date('c') . "', '";
+		$sql .= date('c') . "', '";
+		$sql .= $database->escape_value($this->confirmed_attendance) . "', '";
+		$sql .= $database->escape_value($this->allow_feedback) . "', '";
+		$sql .= $database->escape_value($this->location_type) . "')";
+		
+		// check if the database entry was successful (by attempting it)
+		if ($database->query($sql)) {
+			$this->uid = $database->insert_id();
+			
+			return true;
+		}
+	}
 }
 ?>
 

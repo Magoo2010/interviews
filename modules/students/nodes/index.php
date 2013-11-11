@@ -330,11 +330,12 @@ $arrivalDates = interviewArrivalDates();
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
 							<input class="form-control" type="checkbox" id="sendEmail" value="true">E-Mail candidate confirmation letter
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" id="createNewUserButton" class="btn btn-primary">Submit</button>
 						</div>
 						oversees / home / eu
 						allow_feedback
 					</div>
+					<div id="responseAdded"></div>
 				</form>
 				</div>
 			</div>

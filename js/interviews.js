@@ -1,15 +1,6 @@
 $(document).ready(function(){    
-$("#submit_form").click(function() {
-	$("#submit_form").addClass("disabled");
-	
-	// validate and process form here
-	// jobUID
-	var userUID = $("input#userUID").val();
-	if (userUID == "") {
-		alert("There is no user UID specified.  Please contact an Administrator.");
-		
-		return false;
-	}
+$("#createNewUserButton").click(function() {
+	$("#createNewUserButton").addClass("disabled");
 	
 	var title = $("input#inputTitle").val();
 	var forenames = $("input#inputForenames").val();
@@ -30,10 +21,9 @@ $("#submit_form").click(function() {
 	var feedback = $("input#inputFeedback").val();
 	
 	// url we're going to send the data to
-	var url = "modules/students/actions/update.php";
+	var url = "modules/students/actions/create.php";
 	
 	$.post(url,{
-		uid: userUID,
 		title: title,
 		forenames: forenames,
 		surname: surname,
@@ -52,7 +42,7 @@ $("#submit_form").click(function() {
 		diet: diet,
 		allow_feedback: feedback
 	}, function(data) {
-		$("#response_added").append(data);
+		$("#responseAdded").append(data);
 	},'html');
 	
 	return false;
