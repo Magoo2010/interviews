@@ -152,4 +152,24 @@ $("#submit_contact_form").click(function() {
 	return false;
 });
 
+$(".deleteUserButton").click(function() {
+	var r=confirm("Are you sure you want to delete this booking?");
+	
+	if (r==true) {
+		var uid = $(this).attr('id');
+		
+		var url = 'modules/students/actions/delete.php';
+		
+		// perform the post to the action (take the info and submit to database)
+		$.post(url,{
+		    uid: uid
+		}, function(data){
+		    $("#bookingAddedResponse").append(data);
+		},'html');
+	} else {
+	}
+	
+	return false;
+});
+
 });

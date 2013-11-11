@@ -41,6 +41,7 @@ $arrivalDates = interviewArrivalDates();
 							<th>Full Name</th>
 							<th>Subject</th>
 							<th>Data Checks</th>
+							<th>Options</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -136,6 +137,14 @@ $arrivalDates = interviewArrivalDates();
 	public $date_created;
 	public $date_updated;
 	*/
+							echo "</td>";
+							echo "<td>";
+							echo "<div class=\"btn-group\">";
+							echo "<button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">Action <span class=\"caret\"></span></button>";
+							echo "<ul class=\"dropdown-menu\" role=\"menu\">";
+							echo "<li><a href=\"#\" id=\"" . $user->uid . "\" class=\"deleteUserButton\">Delete User</a></li>";
+							echo "</ul>";
+							echo "</div>";
 							echo "</td>";
 							echo "</tr>";
 						}

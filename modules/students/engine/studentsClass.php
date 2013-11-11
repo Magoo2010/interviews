@@ -276,6 +276,19 @@ class Students {
 			return true;
 		}
 	}
+	
+	public function delete() {
+		global $database;
+		
+		$sql  = "DELETE FROM " . self::$table_name . " ";
+		$sql .= "WHERE uid = '" . $this->uid . "' ";
+		$sql .= "LIMIT 1";
+		
+		// check if the database entry was successful (by attempting it)
+		if ($database->query($sql)) {
+			$this->uid = $database->insert_id();
+		}
+	}
 }
 ?>
 
