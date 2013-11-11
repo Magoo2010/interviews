@@ -3,7 +3,7 @@
 require_once('../../../engine/initialise.php');
 
 
-
+printArray($_POST);
 if (isset($_POST['uid'])) {
 	$user = new Students();
 	

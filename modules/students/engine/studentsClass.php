@@ -24,7 +24,7 @@ class Students {
 	public $date_created;
 	public $date_updated;
 	public $confirmed_attendance;
-	public $allow_feedback;
+	public $optout;
 	public $location_type;
 	
 	public static function find_by_sql($sql="") {
@@ -241,7 +241,7 @@ class Students {
 		global $database;
 		
 		$sql  = "INSERT INTO " . self::$table_name . " (";
-		$sql .= "ucas, title, forenames, surname, course, add1, add2, add3, add4, add5, email, phone, skype, arrival_date, arrival_time, disability, diet, photograph, date_created, date_updated, confirmed_attendance, allow_feedback, location_type";
+		$sql .= "ucas, title, forenames, surname, course, add1, add2, add3, add4, add5, email, phone, skype, arrival_date, arrival_time, disability, diet, photograph, date_created, date_updated, confirmed_attendance, optout, location_type";
 		$sql .= ") VALUES ('";
 		$sql .= $database->escape_value($this->ucas) . "', '";
 		$sql .= $database->escape_value($this->title) . "', '";
@@ -264,8 +264,10 @@ class Students {
 		$sql .= date('c') . "', '";
 		$sql .= date('c') . "', '";
 		$sql .= $database->escape_value($this->confirmed_attendance) . "', '";
-		$sql .= $database->escape_value($this->allow_feedback) . "', '";
+		$sql .= $database->escape_value($this->optout) . "', '";
 		$sql .= $database->escape_value($this->location_type) . "')";
+		
+		echo $sql;
 		
 		// check if the database entry was successful (by attempting it)
 		if ($database->query($sql)) {

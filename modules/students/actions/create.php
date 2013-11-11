@@ -1,12 +1,14 @@
 <?php
-echo "test";
 require_once($_SERVER['DOCUMENT_ROOT'] . 'engine/initialise.php');
 $user = new Students();
+
+printArray($_POST);
 
 $user->title = $_POST['title'];
 $user->forenames = $_POST['forenames'];
 $user->surname = $_POST['surname'];
 $user->course = $_POST['course'];
+$user->location_type = $_POST['location_type'];
 $user->add1 = $_POST['add1'];
 $user->add2 = $_POST['add2'];
 $user->add3 = $_POST['add3'];
@@ -21,8 +23,9 @@ $user->disability = $_POST['disability'];
 $user->diet = $_POST['diet'];
 
 if ($user->create()) {
-	if ($_POST['sendEmail'] == "true") {
-		//sendEmail($_POST['email'], "SEH: Interviews", "Message From SEH: Interviews", $messageBody);
+	if ($_POST['sendemail'] == "true") {
+		echo "sending e-mail to " . $_POST['email'];
+		sendEmail($_POST['email'], "SEH: Interviews", "Message From SEH: Interviews", $messageBody);
 	}
 	
 	$message = "<div class=\"alert alert-success\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Success!</strong> details successfully submitted.</div>";

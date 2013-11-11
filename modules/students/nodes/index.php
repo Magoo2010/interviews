@@ -114,11 +114,11 @@ $arrivalDates = interviewArrivalDates();
 									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 								}
 								// opt-out check
-								if ($user->allow_feedback == 0) {
+								if ($user->optout == 1) {
 									$altText = "User has selected 'opt-out'";
 									$buttonImage = "<i class=\"icon-comments\"></i>";
 									
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-danger\">" . $buttonImage . "</a>";
+									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 								} else {
 									$altText = "User has not selected 'opt-out'";
 									$buttonImage = "<i class=\"icon-comments\"></i>";
@@ -220,6 +220,19 @@ $arrivalDates = interviewArrivalDates();
 						<label class="col-lg-2 control-label" for="inputCourse">Course of Study</label>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" id="inputCourse" placeholder="Course of Study">
+						</div>
+					</div>
+					
+					<hr />
+					
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputStudentLocationType">Student Location Type</label>
+						<div class="col-lg-10">
+							<select class="form-control" id="inputStudentLocationType">
+								<option value="Home">Home</option>
+								<option value="EU">EU</option>
+								<option value="Overseas">Overseas</option>
+							</select>
 						</div>
 					</div>
 					
@@ -329,15 +342,20 @@ $arrivalDates = interviewArrivalDates();
 					
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
-							<input class="form-control" type="checkbox" id="sendEmail" value="true">E-Mail candidate confirmation letter
+							<div class="checkbox">
+								<label><input type="checkbox" id="sendEmail" checked value="true">E-Mail candidate confirmation letter</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-10 col-lg-offset-2">
 							<button type="submit" id="createNewUserButton" class="btn btn-primary">Submit</button>
 						</div>
-						oversees / home / eu
-						allow_feedback
 					</div>
-					<div id="responseAdded"></div>
-				</form>
+
+					</form>
 				</div>
+<div id="responseAdded"></div>
 			</div>
 		</div>
 	</div>

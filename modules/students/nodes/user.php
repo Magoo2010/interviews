@@ -94,6 +94,33 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 						</div>
 					</div>
 					<hr />
+					<?php
+					if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
+						$output  = "<div class=\"form-group\">";
+						$output .= "<label for=\"inputCourse\" class=\"col-lg-2 control-label\">Student Location Type</label>";
+						$output .= "<div class=\"col-lg-10\">";
+						$output .= "<select class=\"form-control\" id=\"inputStudentLocationType\">";
+						
+						$array = array("Home", "EU", "Overseas");
+						
+						foreach ($array AS $ar) {
+							if ($ar == $user->location_type) {
+								$output .= "<option selected value=\"" . $ar . "\">" . $ar . "</option>";
+
+							} else {
+								$output .= "<option value=\"" . $ar . "\">" . $ar . "</option>";
+							}
+						}
+						$output .= "</select>";
+						$output .= "</div>";
+
+						$output .= "</div>";
+						$output .= "<hr />";
+						
+						echo $output;
+					}
+					?>
+					
 					<div class="form-group">
 						<label for="inputAdd1" class="col-lg-2 control-label">Address Line 1</label>
 						<div class="col-lg-10">
@@ -200,13 +227,13 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputFeedback" class="col-lg-2 control-label">Allow Feedback To Referee</label>
+						<label for="inputFeedback" class="col-lg-2 control-label">Opt-Out of Feedback to Referee</label>
 						<div class="col-lg-10">
 							<?php
-							if ($user->allow_feedback == "1") {
-								echo "<input type=\"checkbox\" class=\"form-control\" id=\"inputFeedback\" checked>";
+							if ($user->optout == "1") {
+								echo "<input type=\"checkbox\" class=\"form-control\" value=\"1\" id=\"inputOptOut\" checked>";
 							} else {
-								echo "<input type=\"checkbox\" class=\"form-control\" value=\"1\" id=\"inputFeedback\" >";
+								echo "<input type=\"checkbox\" class=\"form-control\" value=\"0\" id=\"inputOptOut\" >";
 							}
 							?>
 							<p class="help-block">It is our policy to communicate decisions and/or feedback directly to referees at the end of the admissions process. Some candidates prefer for this information to remain confidential. Please tick this box if you do not want St Edmund Hall to communicate decisions and/or feedback to your referee.</p>
@@ -214,7 +241,7 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 					</div>
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
-							<button type="submit" class="btn btn-primary btn-block" id="submit_form">Submit</button>
+							<button type="submit" class="btn btn-primary btn-block" id="updateUserButton">Submit</button>
 							<input type="hidden" id="userUID" value="<?php echo $user->uid; ?>">
 							<p class="lead">If you have any problems with this site please email <a href="mailto:admissions@seh.ox.ac.uk">admissions@seh.ox.ac.uk</a></p>
 						</div>
