@@ -164,7 +164,7 @@ $(".deleteUserButton").click(function() {
 		$.post(url,{
 		    uid: uid
 		}, function(data){
-		    $("#bookingAddedResponse").append(data);
+			$(this).parent().parent().parent().parent().parent().fadeOut();
 		},'html');
 	} else {
 	}
