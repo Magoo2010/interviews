@@ -37,6 +37,7 @@ function sendEmail($recipientAddress = null, $recipientName="Unknown", $messageS
 	$mail->FromName = "St Edmund Hall: Admissions";
 	
 	$mail->AddAddress($recipientAddress, $recipientName);
+	$mail->AddCC("admissions@seh.ox.ac.uk", $recipientName);
 	$mail->AddReplyTo("admissions@seh.ox.ac.uk", "St Edmund Hall: Admissions");
 	
 	$mail->Subject = $messageSubject;
