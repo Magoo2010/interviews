@@ -9,6 +9,7 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 <?php
 $settings = New Settings();
 $emailConfirmation = $settings->find_by_setting_name("confirmation_email");
+$emailWelcome = $settings->find_by_setting_name("welcome_email");
 
 ?>
 <div class="page-header">
@@ -16,38 +17,13 @@ $emailConfirmation = $settings->find_by_setting_name("confirmation_email");
 </div>
 <div class="row">
 	<div class="col-lg-9">
-		<div class="accordion" id="accordion2">
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><?php echo $emailConfirmation->setting_name; ?></a>
-				</div>
-				<div id="collapseOne" class="accordion-body collapse in">
-					<div class="accordion-inner">
-						<textarea class="form-control" rows="10" class="span8" id="<?php echo $emailConfirmation->setting_name ?>"><?php echo $emailConfirmation->setting_value; ?></textarea>
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">new user e-mail</a>
-				</div>
-				<div id="collapseTwo" class="accordion-body collapse">
-					<div class="accordion-inner">
-						<textarea class="form-control" rows="10" class="span8"></textarea>
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Other</a>
-				</div>
-				<div id="collapseThree" class="accordion-body collapse">
-					<div class="accordion-inner">
-						<textarea class="form-control" rows="10" class="span8">other</textarea>
-					</div>
-				</div>
-			</div>
-		</div>
+		<h2><?php echo $emailConfirmation->setting_name; ?></h2>
+		<p>This e-mail is sent to users as they update their details on this site</p>
+		<p><a href="#" class="myeditable" data-pk="<?php echo $emailConfirmation->uid; ?>" id="<?php echo $emailConfirmation->setting_name ?>" data-type="textarea" data-name="<?php echo $emailConfirmation->setting_name ?>" data-url="modules/settings/actions/update.php"><?php echo $emailConfirmation->setting_value; ?></a></p>
+		
+		<h2><?php echo $emailWelcome->setting_name; ?></h2>
+		<p>This e-mail is sent to new users as they are added to this site</p>
+		<p><a href="#" class="myeditable" data-pk="<?php echo $emailWelcome->uid; ?>" id="<?php echo $emailWelcome->setting_name ?>" data-type="textarea" data-name="<?php echo $emailWelcome->setting_name ?>" data-url="modules/settings/actions/update.php"><?php echo $emailWelcome->setting_value; ?></a></p>
 	</div>
 	<div class="col-lg-3">
 		<h3>Available variables</h3>
@@ -62,3 +38,17 @@ $emailConfirmation = $settings->find_by_setting_name("confirmation_email");
 		<p><span class="btn btn-info btn-xs">date_created</span> <span class="btn btn-info btn-xs">date_updated</span></p>
 	</div>
 </div>
+
+<script>
+$(document).ready(function() {
+	$.fn.editable.defaults.mode = 'inline';     
+	
+	$('.myeditable').editable();
+	/*
+	$('.myeditable2').editable({
+		escape: 'true',
+		rows: 16
+	});
+	*/
+});
+</script>

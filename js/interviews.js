@@ -157,8 +157,11 @@ $("#submit_contact_form").click(function() {
 $(".deleteUserButton").click(function() {
 	var r=confirm("Are you sure you want to delete this booking?");
 	
+	var thisObject = $(this);
+	
 	if (r==true) {
-		var uid = $(this).attr('id');
+		var uid = $(thisObject).attr('id');
+		
 		
 		var url = 'modules/students/actions/delete.php';
 		
@@ -166,7 +169,7 @@ $(".deleteUserButton").click(function() {
 		$.post(url,{
 		    uid: uid
 		}, function(data){
-			$(this).parent().parent().parent().parent().parent().fadeOut();
+			$(thisObject).parent().parent().parent().parent().parent().fadeOut();
 		},'html');
 	} else {
 	}

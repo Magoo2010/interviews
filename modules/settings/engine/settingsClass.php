@@ -74,6 +74,17 @@ class Settings {
 		
 		return $results;
 	}
+	
+	public function inlineUpdate($setting_name, $setting_value) {
+		global $database;
+		
+		$sql  = "UPDATE " . self::$table_name . " ";
+		$sql .= "SET setting_value = '" . $database->escape_value($setting_value) . "' ";
+		$sql .= "WHERE setting_name = '" . $database->escape_value($setting_name) . "' ";
+		$sql .= "LIMIT 1";
+		
+		$results = self::find_by_sql($sql);
+	}
 }
 ?>
 

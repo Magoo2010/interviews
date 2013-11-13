@@ -7,8 +7,9 @@
 	
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-editable.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/typeahead.min.js"></script>
+	<!--<script src="js/typeahead.min.js"></script>-->
 	<script src="js/interviews.js"></script>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -19,9 +20,9 @@
 	<meta name="googlebot" content="noarchive" />
 	
 	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-editable.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="css/datepicker.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="all" href="css/primary1.css" />
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>

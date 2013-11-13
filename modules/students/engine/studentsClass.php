@@ -267,8 +267,6 @@ class Students {
 		$sql .= $database->escape_value($this->optout) . "', '";
 		$sql .= $database->escape_value($this->location_type) . "')";
 		
-		echo $sql;
-		
 		// check if the database entry was successful (by attempting it)
 		if ($database->query($sql)) {
 			$this->uid = $database->insert_id();

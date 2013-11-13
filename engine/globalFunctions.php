@@ -23,7 +23,7 @@ function convertToDateTimeString($dateTimeString) {
 	return $returnDate;
 }
 
-function sendEmail($recipientAddress = null, $recipientName=null, $messageSubject=null, $messageBody = null) {
+function sendEmail($recipientAddress = null, $recipientName="Unknown", $messageSubject="Message from St Edmund Hall", $messageBody = null, $expand = false, $userUID = null) {
 	$mail = new phpmailer;
 	
 	// set mailer to use SMTP
@@ -33,14 +33,35 @@ function sendEmail($recipientAddress = null, $recipientName=null, $messageSubjec
 	$mail->Encoding = "8bit";
 	$mail->IsHTML(true);
 	
-	$mail->From = "no-reply@seh.ox.ac.uk";
-	$mail->FromName = "St Edmund Hall: Interviews";
+	$mail->From = "admissions@seh.ox.ac.uk";
+	$mail->FromName = "St Edmund Hall: Admissions";
 	
-//	$mail->AddAddress($recipientAddress, $recipientName);
-	$mail->AddAddress("andrew.breakspear@seh.ox.ac.uk", $recipientName);
+	$mail->AddAddress($recipientAddress, $recipientName);
 	$mail->AddReplyTo("admissions@seh.ox.ac.uk", "St Edmund Hall: Admissions");
 	
 	$mail->Subject = $messageSubject;
+	
+	if ($expand == true) {
+		$user = Students::find_by_uid($userUID);
+		
+		$expandedMessage = $messageBody;
+		
+		$userClass = new Students();
+		$class_vars = get_class_vars(get_class($userClass));
+		
+		foreach ($class_vars as $name => $value) {
+			$expanded_vars[] = "{{" . $name . "}}";
+		}
+		
+		foreach ($expanded_vars AS $var) {
+			$cleanVar = str_replace(array("{", "}"), "", $var);
+			
+			$expandedMessage = str_replace($var, $user->$cleanVar, $expandedMessage);
+		}
+		
+		$messageBody = $expandedMessage;
+	}
+	
 	$mail->Body = $messageBody;
 	
 	$mail->Send();

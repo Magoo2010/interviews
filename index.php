@@ -110,6 +110,7 @@ if (count($allStudents) > 0) {
 }
 ?>
 <script>
+/*
 $(document).ready(function() {
 	var usersAhead = [<?php echo implode(",", $searchOutput);?>];
 	
@@ -124,4 +125,5 @@ $(document).ready(function() {
 		}
 	});
 });
+*/
 </script>
