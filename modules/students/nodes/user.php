@@ -41,7 +41,7 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 ?>
 <div class="row">
 	<div class="page-header">
-		<h1><?php echo $user->fullDisplayName(); ?> <small> Cohort: <?php echo $user->uid; ?></small></h1>
+		<h1><?php echo $user->fullDisplayName(); ?> <small> UCAS: <?php echo $user->ucas; ?></small></h1>
 	</div>
 </div>
 <div class="row">
@@ -69,6 +69,18 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 		<div class="tab-content">
 			<div class="tab-pane fade in active" id="details">
 				<form class="form-horizontal" role="form">
+					<?php
+					if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
+					?>
+					<div class="form-group">
+						<label for="inputUcas" class="col-lg-2 control-label">UCAS ID</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputUCAS" placeholder="UCAS ID" value="<?php echo $user->ucas; ?>">
+						</div>
+					</div>
+					<?php
+					}
+					?>
 					<div class="form-group">
 						<label for="inputTitle" class="col-lg-2 control-label">Title</label>
 						<div class="col-lg-10">
@@ -187,27 +199,35 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 					<div class="form-group">
 						<label for="inputDate" class="col-lg-2 control-label">I'll arrive in Oxford on</label>
 						<div class="col-lg-10">
-							<select id="inputDate" class="form-control" >
-								<option>Saturday 1st December</option>
-								<option>Saturday 1st December</option>
-								<option>Saturday 1st December</option>
-								<option>Saturday 1st December</option>
-								<option>Saturday 1st December</option>
-								<option>Saturday 1st December</option>
-								<option>Saturday 1st December</option>
-							</select>
+							<input class="form-control" type="text" id="inputDate" value="<?php echo date('Y/m/d', strtotime($user->arrival_date)); ?>">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputTime" class="col-lg-2 control-label">Time</label>
 						<div class="col-lg-10">
 							<select id="inputTime" class="form-control" >
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
+								<?php
+								$times = array();
+								$time = strtotime("00:00:00");
+								$times["00:00:00"] = date("g:i a",$time);
+								$output = "";
+								
+								for($i = 1;$i < 48;$i++) {
+									$time = strtotime("+ 1 hour",$time);
+									$key = date("H:i:s",$time);
+									$times[$key] = date("g:i a",$time);
+								}
+								
+								foreach($times AS $time => $timeFriendly) {
+									if (date('H:i', strtotime($time)) == date('H:i', strtotime($user->arrival_time))) {
+										$selected = "selected";
+									} else {
+										$selected = "";
+									}
+									$output .= "<option " . $selected . " value=\"" . $time . "\">" . $timeFriendly . "</option>";
+								}
+								echo $output;
+								?>
 							</select>
 						</div>
 					</div>

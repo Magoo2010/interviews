@@ -208,6 +208,12 @@ $arrivalDates = interviewArrivalDates();
 				<div class="tab-pane fade" id="addnew">
 					<form class="form-horizontal" role="form">
 					<div class="form-group">
+						<label class="col-lg-2 control-label" for="inputUCAS">UCAS ID</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputUCAS" placeholder="UCAS ID">
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="col-lg-2 control-label" for="inputTitle">Title</label>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" id="inputTitle" placeholder="Title">
@@ -308,26 +314,31 @@ $arrivalDates = interviewArrivalDates();
 					<div class="form-group">
 						<label class="col-lg-2 control-label" for="inputDate">I shall arrive in Oxford on</label>
 						<div class="col-lg-10">
-							<select class="form-control" id="inputDate">
-								<?php
-								foreach ($arrivalDates AS $date) {
-									echo "<option>" . date('l jS \of F Y', strtotime($date)) . "</option>";
-								}
-								?>
-							</select>
+							<input class="form-control" type="text" id="inputDate">
 							USE THIS TO SUGEST TO STUDENTS
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-lg-2 control-label" for="inputTime">Time</label>
 						<div class="col-lg-10">
-							<select class="form-control" id="inputTime">
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
-								<option>8:00 am</option>
+							<select id="inputTime" class="form-control" >
+								<?php
+								$times = array();
+								$time = strtotime("00:00:00");
+								$times["00:00:00"] = date("g:i a",$time);
+								$output = "";
+								
+								for($i = 1;$i < 48;$i++) {
+									$time = strtotime("+ 1 hour",$time);
+									$key = date("H:i:s",$time);
+									$times[$key] = date("g:i a",$time);
+								}
+								
+								foreach($times AS $time => $timeFriendly) {
+									$output .= "<option value=\"" . $time . "\">" . $timeFriendly . "</option>";
+								}
+								echo $output;
+								?>
 							</select>
 						</div>
 					</div>
@@ -369,3 +380,5 @@ $arrivalDates = interviewArrivalDates();
 		</div>
 	</div>
 </div>
+
+

@@ -5,6 +5,7 @@ $user = new Students();
 printArray($_POST);
 
 $user->title = $_POST['title'];
+$user->ucas = $_POST['ucas'];
 $user->forenames = $_POST['forenames'];
 $user->surname = $_POST['surname'];
 $user->course = $_POST['course'];

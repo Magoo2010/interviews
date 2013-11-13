@@ -2,6 +2,7 @@ $(document).ready(function(){
 $("#createNewUserButton").click(function() {
 	$("#createNewUserButton").addClass("disabled");
 	
+	var ucas = $("input#inputUCAS").val();
 	var title = $("input#inputTitle").val();
 	var forenames = $("input#inputForenames").val();
 	var surname = $("input#inputSurname").val();
@@ -15,8 +16,8 @@ $("#createNewUserButton").click(function() {
 	var email = $("input#inputEmail").val();
 	var phone = $("input#inputPhone").val();
 	var skype = $("input#inputSkype").val();
-	var arrival_date = $("input#userUID").val();
-	var arrival_time = $("input#userUID").val();
+	var arrival_date = $("input#inputDate").val();
+	var arrival_time = $("select#inputTime").val();
 	var disability = $("textarea#inputDisability").val();
 	var diet = $("textarea#inputDiet").val();
 	var optout = $("input#inputOptOut").val();
@@ -27,6 +28,7 @@ $("#createNewUserButton").click(function() {
 	var url = "modules/students/actions/create.php";
 	
 	$.post(url,{
+		ucas: ucas,
 		title: title,
 		forenames: forenames,
 		surname: surname,
@@ -69,8 +71,8 @@ $("#updateUserButton").click(function() {
 	var email = $("input#inputEmail").val();
 	var phone = $("input#inputPhone").val();
 	var skype = $("input#inputSkype").val();
-	var arrival_date = $("input#userUID").val();
-	var arrival_time = $("input#userUID").val();
+	var arrival_date = $("input#inputDate").val();
+	var arrival_time = $("select#inputTime").val();
 	var disability = $("textarea#inputDisability").val();
 	var diet = $("textarea#inputDiet").val();
 	var optout = $('input#inputOptOut').prop('checked');
@@ -170,6 +172,12 @@ $(".deleteUserButton").click(function() {
 	}
 	
 	return false;
+});
+
+
+$('#inputDate').datepicker({
+	format: "yyyy/mm/dd",
+	todayBtn: true
 });
 
 });
