@@ -37,11 +37,11 @@ $arrivalDates = interviewArrivalDates();
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
-							<th>UCAS ID Number</th>
-							<th>Full Name</th>
-							<th>Subject</th>
-							<th>Data Checks</th>
-							<th>Options</th>
+							<th width="10%">UCAS ID Number</th>
+							<th width="22%">Full Name</th>
+							<th width="20%">Subject</th>
+							<th width="25%" class="visible-lg visible-md">Data Checks</th>
+							<th width="8%">Options</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -51,7 +51,7 @@ $arrivalDates = interviewArrivalDates();
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
 							echo "<td>" . $user->course . "</a></td>";
-							echo "<td>";
+							echo "<td class=\"visible-lg visible-md\">";
 								echo "<div class=\"btn-group\">";
 								// email check
 								if ($user->email) {
@@ -158,20 +158,22 @@ $arrivalDates = interviewArrivalDates();
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
-							<th>UCAS ID Number</th>
-							<th>Full Name</th>
-							<th>Subject</th>
-							<th>Data Checks</th>
+							<th width="10%">UCAS ID Number</th>
+							<th width="22%">Full Name</th>
+							<th width="20%">Subject</th>
+							<th width="25%" class="visible-lg visible-md">Data Checks</th>
+							<th width="8%">Options</th>
 						</tr>
 						</thead>
 						<tbody>
 						<?php
 						foreach($confirmed AS $user) {
 							echo "<tr>";
-							echo "<td>" . $user->uid . "</td>";
+							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
 							echo "<td>" . $user->course . "</a></td>";
 							echo "<td>datachecks</td>";
+							echo "<td>options</td>";
 							echo "</tr>";
 						}
 						?>
@@ -184,20 +186,22 @@ $arrivalDates = interviewArrivalDates();
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
-							<th>UCAS ID Number</th>
-							<th>Full Name</th>
-							<th>Subject</th>
-							<th>Data Checks</th>
+							<th width="10%">UCAS ID Number</th>
+							<th width="22%">Full Name</th>
+							<th width="20%">Subject</th>
+							<th width="25%" class="visible-lg visible-md">Data Checks</th>
+							<th width="8%">Options</th>
 						</tr>
 						</thead>
 						<tbody>
 						<?php
 						foreach($unconfirmed AS $user) {
 							echo "<tr>";
-							echo "<td>" . $user->uid . "</td>";
+							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
 							echo "<td>" . $user->course . "</a></td>";
 							echo "<td>datachecks</td>";
+							echo "<td>options</td>";
 							echo "</tr>";
 						}
 						?>
@@ -314,7 +318,7 @@ $arrivalDates = interviewArrivalDates();
 					<div class="form-group">
 						<label class="col-lg-2 control-label" for="inputDate">I shall arrive in Oxford on</label>
 						<div class="col-lg-10">
-							<input class="form-control" type="text" id="inputDate">
+							<input class="form-control" type="text" id="inputDate" value="<?php echo date('Y/m/d');?>">
 							USE THIS TO SUGEST TO STUDENTS
 						</div>
 					</div>
