@@ -33,6 +33,7 @@
 						<li><a href="index.php?n=logon.php">Admin. Logon</a></li>
 						<li><a href="index.php?m=reports&n=index.php">Reports</a></li>
 						<li><a href="index.php?m=settings&n=email_admin.php">E-Mail Settings</a></li>
+						<li><a href="index.php?m=logs&n=index.php">Activity Logs</a></li>
 						<li class="divider"></li>
 						<li><a href="index.php?n=ucas_logon.php&logout=true">Log Out</a></li>
 					</ul>

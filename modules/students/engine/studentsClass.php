@@ -228,8 +228,8 @@ class Students {
 		} else {
 			$log = new Logs();
 			$log->type = "warning";
-			$log->title = "Details Update Failure";
-			$log->description = "User attempted to update their details, but a failure occurred";
+			$log->title = "Details Update";
+			$log->description = "User attempted to update their details, but an error occurred";
 			$log->userUID = $this->uid;
 			$log->create();
 			
