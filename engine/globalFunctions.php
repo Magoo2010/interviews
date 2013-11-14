@@ -63,6 +63,8 @@ function sendEmail($recipientAddress = null, $recipientName="Unknown", $messageS
 		$messageBody = $expandedMessage;
 	}
 	
+	echo "<h1>SENDING E-MAIL TO " . $recipientAddress . "</h1>";
+	
 	$mail->Body = $messageBody;
 	
 	$mail->Send();
