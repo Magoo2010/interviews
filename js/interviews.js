@@ -22,7 +22,11 @@ $("#createNewUserButton").click(function() {
 	var diet = $("textarea#inputDiet").val();
 	var optout = $("input#inputOptOut").val();
 	
-	var sendemail = $("input#sendEmail").val();
+	if ($("input#sendEmail").is(':checked')) {
+		var sendemail = "true";
+	} else {
+		var sendemail = "false";
+	}
 	
 	// url we're going to send the data to
 	var url = "modules/students/actions/create.php";
