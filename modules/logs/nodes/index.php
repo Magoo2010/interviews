@@ -15,10 +15,10 @@ $allLogs = Logs::find_all();
 		    <thead>
 		    	<tr>
 		    		<th width="15%">Date</th>
-		    		<th width="10%">Title</th>
-		    		<th width="40%" class="visible-lg visible-md">Description</th>
-		    		<th width="10%">User</th>
-		    		<th width="15%">IP</th>
+		    		<th width="15%">Title</th>
+		    		<th width="45%" class="visible-lg visible-md">Description</th>
+		    		<th width="15%">User</th>
+		    		<th width="10%">IP</th>
 		    	</tr>
 		    </thead>
 		    <tbody>
