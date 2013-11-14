@@ -32,10 +32,11 @@ $emailWelcome = $settings->find_by_setting_name("welcome_email");
 		<p><span class="btn btn-info btn-xs">course</span></p>
 		<p><span class="btn btn-info btn-xs">add1</span> <span class="btn btn-info btn-xs">add2</span> <span class="btn btn-info btn-xs">add3</span> <span class="btn btn-info btn-xs">add4</span> <span class="btn btn-info btn-xs">add5</span></p>
 		<p><span class="btn btn-info btn-xs">email</span> <span class="btn btn-info btn-xs">phone</span> <span class="btn btn-info btn-xs">skype</span></p>
-		<p><span class="btn btn-info btn-xs">arrival_date</span> <span class="btn btn-info btn-xs">arrival_time</span></p>
-		<p><span class="btn btn-info btn-xs">disability</span> <span class="btn btn-info btn-xs">diet</span></p>
-		<p><span class="btn btn-info btn-xs">photograph</span></p>
-		<p><span class="btn btn-info btn-xs">date_created</span> <span class="btn btn-info btn-xs">date_updated</span></p>
+		<p><span class="btn btn-default btn-xs">arrival_date</span> <span class="btn btn-default btn-xs">arrival_time</span></p>
+		<p><span class="btn btn-info btn-xs">disability</span> <span class="btn btn-info btn-xs">diet</span> <span class="btn btn-info btn-xs">location_type</span></p>
+		<p><span class="btn btn-info btn-xs">confirmed_attendance</span> <span class="btn btn-info btn-xs">optout</span></p>
+		<p><span class="btn btn-default btn-xs">photograph</span></p>
+		<p><span class="btn btn-default btn-xs">date_created</span> <span class="btn btn-default btn-xs">date_updated</span></p>
 	</div>
 </div>
 
