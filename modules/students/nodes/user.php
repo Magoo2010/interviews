@@ -11,8 +11,14 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 if (isset($_FILES['fileInput']['name'])) {
 	$photoUser = Students::find_by_uid($_GET['studentUID']);
 	
+	$path_parts = pathinfo($_FILES['fileInput']['name']);
+	//$fileDirname = $path_parts['dirname'];
+	//$fileBasename = $path_parts['basename'];
+	$fileExtension = $path_parts['extension'];
+	//$fileName = $path_parts['filename'];
+	
 	$target_path = SITE_LOCATION . '/uploads/';
-	$target_name = $photoUser->uid . "_" . date(U) . "_" . basename($_FILES['fileInput']['name']);
+	$target_name = $photoUser->uid . "_" . date(U) . "." . $fileExtension;
 	$target_path_name = $target_path . $target_name; 
 	
 	if(move_uploaded_file($_FILES['fileInput']['tmp_name'], $target_path_name)) {
