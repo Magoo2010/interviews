@@ -10,6 +10,12 @@ if ($directory = opendir(SITE_LOCATION . "/uploads/")) {
 		
 		if ($photoUserID == $user->uid) {
 			unlink(SITE_LOCATION . "/uploads/". $entry);
+			
+			$log = new Logs();
+			$log->type = "info";
+			$log->title = "File Delete";
+			$log->description = "File " . $entry " was deleted";
+			$log->create();
 		}
 	}
 	
@@ -18,4 +24,9 @@ if ($directory = opendir(SITE_LOCATION . "/uploads/")) {
 
 $user->delete();
 
+$log = new Logs();
+$log->type = "warning";
+$log->title = "User Deleted";
+$log->description = "User UCAS:" . $user->ucas . " was deleted";
+$log->create();
 ?>

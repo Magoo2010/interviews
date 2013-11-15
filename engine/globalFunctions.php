@@ -64,12 +64,12 @@ function sendEmail($recipientAddress = null, $recipientName="Unknown", $messageS
 	}
 	
 	// log this event!
-	echo "<h1>SENDING E-MAIL TO " . $recipientAddress . "</h1>";
+	echo "<p class=\"lead\">SENDING E-MAIL TO " . $recipientAddress . "</p>";
 	$log = new Logs();
 	$log->type = "info";
 	$log->title = "E-Mail Sent";
 	$log->description = "An e-mail was sent to " . $recipientAddress;
-	$log->userUID = $this->uid;
+	$log->userUID = $userUID;
 	$log->create();
 	
 	$mail->Body = $messageBody;

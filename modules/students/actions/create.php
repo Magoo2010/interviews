@@ -24,6 +24,13 @@ $user->disability = $_POST['disability'];
 $user->diet = $_POST['diet'];
 
 if ($user->create()) {
+	$log = new Logs();
+	$log->type = "success";
+	$log->title = "User Created";
+	$log->description = "User UID:" . $user->uid . " was created";
+	$log->userUID = $user->uid;
+	$log->create();
+
 	if ($_POST['sendemail'] == "true") {
 		$emailWelcome = Settings::find_by_setting_name("welcome_email");
 		
@@ -32,6 +39,12 @@ if ($user->create()) {
 	
 	$message = "<div class=\"alert alert-success\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Success!</strong> details successfully submitted.</div>";
 } else {
+	$log = new Logs();
+	$log->type = "error";
+	$log->title = "User Created";
+	$log->description = "User with UCAS ID: " . $_POST['ucas'] . " was not created";
+	$log->create();
+	
 	$message = "<div class=\"alert alert-danger\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Error!</strong> There was an error saving your details.  Please try again.</div>";
 }
 
