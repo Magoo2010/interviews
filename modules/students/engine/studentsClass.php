@@ -88,7 +88,7 @@ class Students {
 		global $database;
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
-		$sql .= "ORDER BY surname ASC";
+		$sql .= "ORDER BY course ASC, surname ASC";
 		
 		$results = self::find_by_sql($sql);
 		
@@ -100,7 +100,7 @@ class Students {
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
 		$sql .= "WHERE confirmed_attendance = '1' ";
-		$sql .= "ORDER BY surname ASC";
+		$sql .= "ORDER BY course ASC, surname ASC";
 		
 		$results = self::find_by_sql($sql);
 		
@@ -125,7 +125,7 @@ class Students {
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
 		$sql .= "WHERE confirmed_attendance <> '1' ";
-		$sql .= "ORDER BY surname ASC";
+		$sql .= "ORDER BY course ASC, surname ASC";
 		
 		$results = self::find_by_sql($sql);
 		
