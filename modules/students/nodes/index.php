@@ -52,91 +52,7 @@ $arrivalDates = interviewArrivalDates();
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
 							echo "<td>" . $user->course . "</a></td>";
 							echo "<td class=\"visible-lg visible-md\">";
-								echo "<div class=\"btn-group\">";
-								// email check
-								if ($user->email) {
-									$altText = "User has provided an E-Mail address";
-									$buttonImage = "<i class=\"icon-envelope\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not provided an E-Mail address";
-									$buttonImage = "<i class=\"icon-envelope\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								// mobile check
-								if ($user->phone) {
-									$altText = "User has provided an telephone number";
-									$buttonImage = "<i class=\"icon-phone\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not provided an telephone number";
-									$buttonImage = "<i class=\"icon-phone\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								// skype check
-								if ($user->skype) {
-									$altText = "User has provided a Skype ID";
-									$buttonImage = "<i class=\"icon-skype\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not provided a Skype ID";
-									$buttonImage = "<i class=\"icon-skype\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								// address check
-								if ($user->add5) {
-									$altText = "User has provided an address";
-									$buttonImage = "<i class=\"icon-home\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not provided an address";
-									$buttonImage = "<i class=\"icon-home\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								// date/time check
-								if ($user->arrival_date) {
-									$altText = "User has provided an arrival date";
-									$buttonImage = "<i class=\"icon-calendar\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not provided an arrival date";
-									$buttonImage = "<i class=\"icon-calendar\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								// photo check
-								if ($user->photograph) {
-									$altText = "User has uploaded a photograph";
-									$buttonImage = "<i class=\"icon-picture\"></i>";
-									
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not uploaded a photograph";
-									$buttonImage = "<i class=\"icon-picture\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								// opt-out check
-								if ($user->optout == 1) {
-									$altText = "User has selected 'opt-out'";
-									$buttonImage = "<i class=\"icon-comments\"></i>";
-									
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
-								} else {
-									$altText = "User has not selected 'opt-out'";
-									$buttonImage = "<i class=\"icon-comments\"></i>";
-									echo "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
-								}
-								
-								echo "</div>";
-							/*
-								public $course;
-
-	public $arrival_date;
-	public $arrival_time;
-	public $disability;
-	public $diet;
-	public $date_created;
-	public $date_updated;
-	*/
+							echo $user->datachecks();
 							echo "</td>";
 							echo "<td>";
 							echo "<div class=\"btn-group\">";
@@ -172,7 +88,7 @@ $arrivalDates = interviewArrivalDates();
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
 							echo "<td>" . $user->course . "</a></td>";
-							echo "<td>datachecks</td>";
+							echo "<td>" . $user->datachecks() . "</td>";
 							echo "<td>options</td>";
 							echo "</tr>";
 						}
@@ -200,7 +116,7 @@ $arrivalDates = interviewArrivalDates();
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
 							echo "<td>" . $user->course . "</a></td>";
-							echo "<td>datachecks</td>";
+							echo "<td>" . $user->datachecks() . "</td>";
 							echo "<td>options</td>";
 							echo "</tr>";
 						}
