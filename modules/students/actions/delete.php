@@ -4,17 +4,18 @@ $user = Students::find_by_uid($_POST['uid']);
 
 if ($directory = opendir(SITE_LOCATION . "/uploads/")) {
 	$uidLen = strlen($user->uid);
+	$userPhotoPrefix = $user->uid . "_";
 	
 	while (false !== ($entry = readdir($directory))) {
-		$photoUserID = substr($entry, 0, $uidLen);
+		$photoUserID = substr($entry, 0, $uidLen) . "_";
 		
-		if ($photoUserID == $user->uid) {
+		if ($photoUserID == $userPhotoPrefix) {
 			unlink(SITE_LOCATION . "/uploads/". $entry);
 			
 			$log = new Logs();
 			$log->type = "info";
 			$log->title = "File Delete";
-			$log->description = "File " . $entry " was deleted";
+			$log->description = "File " . $entry . " was deleted";
 			$log->create();
 		}
 	}
