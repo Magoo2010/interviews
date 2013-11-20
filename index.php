@@ -42,6 +42,12 @@ if (isset($_POST["inputUCAS"])) {
 			exit;
 		} else {
 			$message = "<div class=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Warning!</strong> Login attempt failed.</div>";
+			
+			$log = new Logs();
+			$log->type = "warning";
+			$log->title = "User Logon Fail";
+			$log->description = $_POST["inputUCAS"] . " attempted to log on";
+			$log->create();
 		}
 	}
 }

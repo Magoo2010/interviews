@@ -69,6 +69,12 @@ if (isset($_POST["oldform"])) { //prevent null bind
 			$redir = "Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php";
 			header($redir);
 			exit;
+		} else {
+			$log = new Logs();
+			$log->type = "error";
+			$log->title = "LDAP User Logon Fail";
+			$log->description = $_POST["username"] . " attempted to log on through LDAP";
+			$log->create();
 		}
 	}
 	
