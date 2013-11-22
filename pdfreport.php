@@ -6,7 +6,7 @@ $pdf = new FPDF();
 $pdf->AddPage();
 
 // only exclude the header if explicitly asked to do so
-if ($_GET['header'] != 'false') {
+if ($_GET['header'] == 'true') {
 	include_once("modules/reports/views/header.php");
 }
 
