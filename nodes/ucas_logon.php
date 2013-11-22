@@ -47,6 +47,7 @@
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<input type="text" class="form-control" placeholder="UCAS Number" name="inputUCAS" value="<?php if (isset($_POST['inputUCAS'])) { echo $_POST['inputUCAS']; } ?>" autofocus>
 		<input type="text" class="form-control" placeholder="Surname" name="inputSurname">
+		<p>Enter your UCAS number without spaces or punctuation</p>
 		<button type="submit" class="btn btn-large btn-primary btn-block" >Sign in</button>
 		<input type='hidden' name='oldform' value='1'>
 		</form>

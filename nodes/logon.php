@@ -91,6 +91,7 @@ if (isset($_POST["oldform"])) { //prevent null bind
 		}
 		?>
 		<h2 class="form-signin-heading">Please sign in</h2>
+		<p>This is for Admissions staff only, do not attempt to log in with your UCAS number.</p>
 		<input type="text" class="form-control" placeholder="Username" name="username" value="<?php if (isset($_POST['username'])) { echo $username; } ?>" autofocus>
 		<input type="password" class="form-control" placeholder="Password" name="password">
 		<button type="submit" class="btn btn-large btn-primary btn-block" >Sign in</button>
