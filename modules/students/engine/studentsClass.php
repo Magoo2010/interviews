@@ -294,77 +294,77 @@ class Students {
 		// email check
 		if ($this->email) {
 			$altText = "User has provided an E-Mail address";
-			$buttonImage = "<i class=\"icon-envelope\"></i>";
+			$buttonImage = "<i class=\"fa fa-envelope\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not provided an E-Mail address";
-			$buttonImage = "<i class=\"icon-envelope\"></i>";
+			$buttonImage = "<i class=\"fa fa-envelope\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
 		// mobile check
 		if ($this->phone) {
 			$altText = "User has provided an telephone number";
-			$buttonImage = "<i class=\"icon-phone\"></i>";
+			$buttonImage = "<i class=\"fa fa-phone\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not provided an telephone number";
-			$buttonImage = "<i class=\"icon-phone\"></i>";
+			$buttonImage = "<i class=\"fa fa-phone\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
 		// skype check
 		if ($this->skype) {
 			$altText = "User has provided a Skype ID";
-			$buttonImage = "<i class=\"icon-skype\"></i>";
+			$buttonImage = "<i class=\"fa fa-skype\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not provided a Skype ID";
-			$buttonImage = "<i class=\"icon-skype\"></i>";
+			$buttonImage = "<i class=\"fa fa-skype\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
 		// address check
 		if ($this->add5) {
 			$altText = "User has provided an address";
-			$buttonImage = "<i class=\"icon-home\"></i>";
+			$buttonImage = "<i class=\"fa fa-home\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not provided an address";
-			$buttonImage = "<i class=\"icon-home\"></i>";
+			$buttonImage = "<i class=\"fa fa-home\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
 		// date/time check
 		if ($this->arrival_date) {
 			$altText = "User has provided an arrival date";
-			$buttonImage = "<i class=\"icon-calendar\"></i>";
+			$buttonImage = "<i class=\"fa fa-calendar\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not provided an arrival date";
-			$buttonImage = "<i class=\"icon-calendar\"></i>";
+			$buttonImage = "<i class=\"fa fa-calendar\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
 		// photo check
 		if ($this->photograph) {
 			$altText = "User has uploaded a photograph";
-			$buttonImage = "<i class=\"icon-picture\"></i>";
+			$buttonImage = "<i class=\"fa fa-camera\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not uploaded a photograph";
-			$buttonImage = "<i class=\"icon-picture\"></i>";
+			$buttonImage = "<i class=\"fa fa-camera\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
 		// opt-out check
 		if ($this->optout == 1) {
 			$altText = "User has selected 'opt-out'";
-			$buttonImage = "<i class=\"icon-comments\"></i>";
+			$buttonImage = "<i class=\"fa fa-comments\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-success\">" . $buttonImage . "</a>";
 		} else {
 			$altText = "User has not selected 'opt-out'";
-			$buttonImage = "<i class=\"icon-comments\"></i>";
+			$buttonImage = "<i class=\"fa fa-comments\"></i>";
 			$output .= "<a href=\"#\" title=\"" . $altText. "\" alt=\"" . $altText . "\" class=\"btn btn-small btn-default\">" . $buttonImage . "</a>";
 		}
 		
