@@ -14,13 +14,37 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 
 
 
+<?php
+$confirmed = Students::find_all_confirmed();
 
-
+// Build list of subjects
+foreach ($confirmed AS $student) {
+	$courseList[$student->course] = $student->course;
+}
+?>
 <div class="row">
-	<div class="col-lg-12">
-		<ul>
-			<li><a href="pdfreport.php?n=candidatesBySubject.php">Candidates by Subject</a></li>
-			<li><a href="pdfreport.php?n=arrivals.php&orientation=L">Arrivals</a></li>
-		</ul>
+	<div class="col-lg-6">
+		<div class="dropdown">
+			<a data-toggle="dropdown" class="btn btn-primary btn-block" href="#">Candidates by Subject</a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<?php
+				foreach ($courseList AS $course) {
+					$url = "pdfreport.php?n=candidatesBySubject.php&course=" . $course;
+					
+					$output  = "<li>";
+					$output .= "<a href=\"" . $url . "\">";
+					$output .= $course;
+					$output .= "</a>";
+					$output .= "</li>";
+					
+					echo $output;
+				}
+				?>
+			</ul>
+		</div>
+		
+		<a href="pdfreport.php?n=arrivals.php&orientation=L" class="btn btn-primary btn-block">Arrivals</a>
+	</div>
+	<div class="col-lg-6">
 	</div>
 </div>
