@@ -3,7 +3,12 @@ include_once("engine/initialise.php");
 require_once('engine/fpdf/fpdf.php');
 
 $pdf = new FPDF();
-$pdf->AddPage();
+
+if ($_GET['orientation']) {
+	$pdf->AddPage($_GET['orientation']);
+} else {
+	$pdf->AddPage();
+}
 
 // only exclude the header if explicitly asked to do so
 if ($_GET['header'] == 'true') {

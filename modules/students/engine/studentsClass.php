@@ -107,6 +107,18 @@ class Students {
 		return $results;
 	}
 	
+	public static function find_all_confirmed_by_arrival_date() {
+		global $database;
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE confirmed_attendance = '1' ";
+		$sql .= "ORDER BY arrival_date DESC, arrival_time DESC";
+		
+		$results = self::find_by_sql($sql);
+		
+		return $results;
+	}
+	
 	public static function find_all_confirmed_by_course($course = null) {
 		global $database;
 		

@@ -17,44 +17,10 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 
 
 <div class="row">
-	<div class="col-lg-3">
-		<div class="thumbnail">
-			<img src="./img/300x200.png" alt="">
-			<div class="caption">
-				<h3>Candidates by Subject</h3>
-				<p>(photo, and details, multiple per page)</p>
-				<p><a href="pdfreport.php?n=candidatesBySubject.php" class="btn btn-primary btn-block">Generate Report</a></p>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-3">
-		<div class="thumbnail">
-			<img src="./img/300x200.png" alt="">
-			<div class="caption">
-				<h3>Disabilities</h3>
-				<p>(photo, and details, multiple per page)</p>
-				<p><a href="#" class="btn btn-primary btn-block">Generate Report</a></p>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-3">
-		<div class="thumbnail">
-			<img src="./img/300x200.png" alt="">
-			<div class="caption">
-				<h3>Special diet</h3>
-				<p>(photo, and details, multiple per page)</p>
-				<p><a href="#" class="btn btn-primary btn-block">Generate Report</a></p>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-3">
-		<div class="thumbnail">
-			<img src="./img/300x200.png" alt="">
-			<div class="caption">
-				<h3>Who has responded, of those, when are they arriving</h3>
-				<p>(photo, and details, multiple per page)</p>
-				<p><a href="#" class="btn btn-primary btn-block">Generate Report</a></p>
-			</div>
-		</div>
+	<div class="col-lg-12">
+		<ul>
+			<li><a href="pdfreport.php?n=candidatesBySubject.php">Candidates by Subject</a></li>
+			<li><a href="pdfreport.php?n=arrivals.php&orientation=L">Arrivals</a></li>
+		</ul>
 	</div>
 </div>
