@@ -32,8 +32,8 @@ foreach ($confirmed AS $student) {
 $rowCounter = 0;
 
 foreach ($sets as $set) {
-	if (file_exists("uploads/" . $set[0]['photograph'])) {
-		$pdf->Cell(65, 50, $pdf->Image("uploads/" . $set[0]['photograph'], $pdf->GetX()+ 15, $pdf->GetY(), 38), 0, 0, 'C', false );
+	if (file_exists($set[0]['photograph'])) {
+		$pdf->Cell(65, 50, $pdf->Image($set[0]['photograph'], $pdf->GetX()+ 15, $pdf->GetY(), 38), 0, 0, 'C', false );
 	} else {
 		$pdf->Cell(65, 50, "", 1, 0, 'C', false);
 	}
