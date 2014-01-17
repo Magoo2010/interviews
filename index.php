@@ -14,7 +14,7 @@ if (isset($_GET['logout'])) {
 }
 
 //you should look into using PECL filter or some form of filtering here for POST variables
-if (isset($_POST["inputUCAS"])) {
+if (isset($_POST["inputUCAS"]) && SITE_STUDENT_LOGON == 'true') {
 	$ucas = $_POST["inputUCAS"];
 	$surname = strtoupper($_POST["inputSurname"]); //remove case sensitivity on the surname
 	

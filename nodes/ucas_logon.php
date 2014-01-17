@@ -36,6 +36,9 @@
 }
 </style>
 
+<?php
+if (SITE_STUDENT_LOGON == "true") {
+?>
 <div class="row">
 	<div class="container">
 		<form class="form-signin" id="loginForm" action="index.php" method="post">
@@ -56,3 +59,19 @@
 	<p>Please note that an interview RSVP submitted using this website will not be accepted unless you have received an invitation from St Edmund Hall with explicit instructions to do so.</p>
 	<p>If you have any problems with this site please email admissions@seh.ox.ac.uk</p>
 </div>
+<?php
+} else {
+?>
+<div class="row">
+	<div class="container">
+		<form class="form-signin" id="loginForm" action="index.php" method="post">
+		<h2 class="form-signin-heading">Site Closed</h2>
+		</form>
+	</div>
+	
+	<p>Please note that an interview RSVP submitted using this website will not be accepted unless you have received an invitation from St Edmund Hall with explicit instructions to do so.</p>
+	<p>If you have any problems with this site please email admissions@seh.ox.ac.uk</p>
+</div>
+<?php
+}
+?>
