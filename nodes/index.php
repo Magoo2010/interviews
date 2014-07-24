@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-lg-6">
 		<h2>Interviews Timetable</h2>
-		<p>Interviews for entry in 2014, or for deferred entry in 2015, will take place in December 2013. The interview timetable is available to view <a href="http://www.ox.ac.uk/admissions/undergraduate_courses/applying_to_oxford/interviews/interview_timetable.html">here</a>.</p>
-		<p><a class="btn btn-primary" href="http://www.ox.ac.uk/admissions/undergraduate_courses/applying_to_oxford/interviews/interview_timetable.html">View details <i class="fa fa-chevron-right"></i></a></p>
+		<p>Interviews for entry in 2014, or for deferred entry in 2015, will take place in December 2013. The interview timetable is available to view <a href="http://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/interviews/interview-timetable">here</a>.</p>
+		<p><a class="btn btn-primary" href="http://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/interviews/interview-timetable">View details <i class="fa fa-chevron-right"></i></a></p>
 	</div>
 	<div class="col-lg-6">
 		<h2>Visiting Oxford</h2>
