@@ -262,7 +262,7 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 								echo "<input type=\"checkbox\" class=\"form-control\" value=\"0\" id=\"inputOptOut\" >";
 							}
 							?>
-							<p class="help-block">It is our policy to communicate decisions and/or feedback directly to referees at the end of the admissions process. Some candidates prefer for this information to remain confidential. Please tick this box if you do not want St Edmund Hall to communicate decisions and/or feedback to your referee.</p>
+							<p class="help-block">It is our policy to communicate decisions and/or feedback directly to your UCAS referee at the end of the admissions process. Some candidates prefer for this information to remain confidential. Please tick this box if you do not want St Edmund Hall to communicate decisions and/or feedback to your referee.</p>
 						</div>
 					</div>
 					<div class="form-group">
