@@ -326,4 +326,14 @@ $(function () {
 })
 
 $('.datepicker').datepicker();
+
+
+$(function () {
+	if($('#inputSkype').val()) {
+		$("#inputDate").prop('disabled', true);
+		$("#inputTime").prop('disabled', true);
+		$("#inputDisability").prop('disabled', true);
+		$("#inputDiet").prop('disabled', true);
+	}
+})
 </script>
