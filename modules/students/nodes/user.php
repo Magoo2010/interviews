@@ -327,12 +327,24 @@ $(function () {
 
 $('.datepicker').datepicker();
 
+$("#inputSkype").keyup(function() {
+	$(function () {
+		if($('#inputSkype').val()) {
+			$("#inputDate").prop('disabled', true);
+			$("#inputTime").prop('disabled', true);
+			$("#inputDiet").prop('disabled', true);
+		} else {
+			$("#inputDate").prop('disabled', false);
+			$("#inputTime").prop('disabled', false);
+			$("#inputDiet").prop('disabled', false);
+		}
+	})
+});
 
 $(function () {
 	if($('#inputSkype').val()) {
 		$("#inputDate").prop('disabled', true);
 		$("#inputTime").prop('disabled', true);
-		$("#inputDisability").prop('disabled', true);
 		$("#inputDiet").prop('disabled', true);
 	}
 })
