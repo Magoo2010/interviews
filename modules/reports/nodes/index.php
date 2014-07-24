@@ -44,6 +44,8 @@ foreach ($confirmed AS $student) {
 		</div>
 		
 		<a href="pdfreport.php?n=arrivals.php&orientation=L" class="btn btn-primary btn-block">Arrivals</a>
+		<a href="pdfreport.php?n=disability.php" class="btn btn-primary btn-block">Disability Report</a>
+		<a href="pdfreport.php?n=dietary.php" class="btn btn-primary btn-block">Dietary Report</a>
 	</div>
 	<div class="col-lg-6">
 	</div>

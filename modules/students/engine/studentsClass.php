@@ -107,6 +107,32 @@ class Students {
 		return $results;
 	}
 	
+	public static function find_all_with_disability() {
+		global $database;
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE COALESCE(disability, '') != '' ";
+		$sql .= "AND UPPER(disability) NOT IN ('NONE', 'NONE.', 'N/A', 'NA', 'NA.', 'NO', '-', 'NO DISABILITY', 'NO DISABILITY.') ";
+		$sql .= "ORDER BY arrival_date DESC, arrival_time DESC";
+		
+		$results = self::find_by_sql($sql);
+		
+		return $results;
+	}
+	
+	public static function find_all_with_dietary() {
+		global $database;
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE COALESCE(diet, '') != '' ";
+		$sql .= "AND UPPER(diet) NOT IN ('NONE', 'NONE.', 'N/A', 'NA', 'NA.', 'NO', '-', 'NO DIETARY REQUIREMENTS', 'NO REQUIREMENTS.') ";
+		$sql .= "ORDER BY arrival_date DESC, arrival_time DESC";
+		
+		$results = self::find_by_sql($sql);
+		
+		return $results;
+	}
+	
 	public static function find_all_confirmed_by_arrival_date() {
 		global $database;
 		
