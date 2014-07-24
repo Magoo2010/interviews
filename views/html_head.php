@@ -19,7 +19,7 @@
 	<meta name="robots" content="index, follow, noarchive" />
 	<meta name="googlebot" content="noarchive" />
 	
-	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-editable.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="css/datepicker.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
