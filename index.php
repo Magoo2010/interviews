@@ -101,35 +101,3 @@ body {
 	</div>
 </body>
 </html>
-
-<?php
-//navigation quick search
-$allStudents = Students::find_all();
-
-if (count($allStudents) > 0) {
-	foreach ($allStudents AS $student) {
-		$name = str_replace("'", "", $student->fullDisplayName());
-		//$name = htmlspecialchars($name, ENT_QUOTES);
-		
-		$searchOutput[] = "{id: " . $student->uid . ", name: '" . $name . "'}";
-	}
-}
-?>
-<script>
-/*
-$(document).ready(function() {
-	var usersAhead = [<?php echo implode(",", $searchOutput);?>];
-	
-	$('#searchAhead').typeahead({
-		source: usersAhead,
-		matchProp: 'name',
-		sortProp: 'name',
-		valueProp: 'id',
-		itemSelected: function (item) {
-			// go to user_overview.php and pass the userUID var in the $_GET
-			location.href = "index.php?m=students&n=user.php&studentUID=" + item
-		}
-	});
-});
-*/
-</script>
