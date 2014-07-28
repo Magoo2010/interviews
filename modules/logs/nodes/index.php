@@ -10,6 +10,10 @@ $allLogs = Logs::find_all();
 		<h2>Activity over the last 30 days</h2>
 		<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 	</div>
+	
+	<div class="col-xs-3">
+		<input type="text" class="form-control search-query" id="logs_search_input" placeholder="Quick Filter">
+	</div>
 	<div class="col-lg-12">
 		<table class="table table-bordered table-striped">
 		    <thead>
@@ -21,7 +25,7 @@ $allLogs = Logs::find_all();
 		    		<th width="10%">IP</th>
 		    	</tr>
 		    </thead>
-		    <tbody>
+		    <tbody id="logs_search_list">
 		    	<?php
 		    	foreach ($allLogs AS $log) {
 		    		$bookingDate = date('z', strtotime($log->date_created));
@@ -64,6 +68,12 @@ $allLogs = Logs::find_all();
 		</table>
 	</div>
 </div>
+
+<script type="text/javascript">
+$(function() {
+	$('#logs_search_input').fastLiveFilter('#logs_search_list');
+});
+</script>
 
 <?php
 // take the array $bookingsByDay and re order to friendly date names, and only the last 3o days
@@ -149,4 +159,5 @@ $(function () {
 });
 </script>
 
+<script src="js/jquery.fastLiveFilter.js"></script>
 <script src="js/highcharts.js"></script>

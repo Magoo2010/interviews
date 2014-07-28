@@ -12,6 +12,15 @@ $unconfirmed = Students::find_all_unconfirmed();
 $arrivalDates = interviewArrivalDates();
 $courses = Courses::find_all();
 ?>
+
+<script type="text/javascript">
+$(function() {
+	$('#all_users_input').fastLiveFilter('#all_users_list');
+	$('#confirmed_users_input').fastLiveFilter('#confirmed_users_list');
+	$('#unconfirmed_users_input').fastLiveFilter('#unconfirmed_users_list');
+});
+</script>
+
 <div class="row">
 	<div class="span12">
 		<div class="page-header">
@@ -33,8 +42,9 @@ $courses = Courses::find_all();
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade in active" id="students">
 					<p><a class="btn btn-info btn-small pull-right" href="modules/students/nodes/csv_allusers.php"><i class="icon-file"></i> Export As CSV</a></p>
-					<p>I'm in Section 1.</p>
-					<div class="clearfix"></div>
+					<div class="col-xs-3">
+						<input type="text" class="form-control search-query" id="all_users_input" placeholder="Quick Filter">
+					</div>
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
@@ -45,7 +55,7 @@ $courses = Courses::find_all();
 							<th width="8%">Options</th>
 						</tr>
 						</thead>
-						<tbody>
+						<tbody id="all_users_list">
 						<?php
 						foreach($invitees AS $user) {
 							$course = Courses::find_by_uid($user->course_code);
@@ -73,7 +83,12 @@ $courses = Courses::find_all();
 				</div>
 				
 				<div class="tab-pane fade" id="confirmed">
-					<p><a class="btn btn-info btn-small pull-right" href="modules/students/nodes/csv_confirmedusers.php"><i class="icon-file"></i> Export As CSV</a></p>
+					<div class="col-xs-3">
+						<input type="text" class="form-control search-query" id="confirmed_users_input" placeholder="Quick Filter">
+					</div>
+					<div class="col-xs-9">
+						<p><a class="btn btn-info btn-small pull-right" href="modules/students/nodes/csv_confirmedusers.php"><i class="icon-file"></i> Export As CSV</a></p>
+					</div>
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
@@ -84,7 +99,7 @@ $courses = Courses::find_all();
 							<th width="8%">Options</th>
 						</tr>
 						</thead>
-						<tbody>
+						<tbody id="confirmed_users_list">
 						<?php
 						foreach($confirmed AS $user) {
 							$course = Courses::find_by_uid($user->course_code);
@@ -103,7 +118,12 @@ $courses = Courses::find_all();
 				</div>
 				
 				<div class="tab-pane fade" id="unconfirmed">
-					<p><a class="btn btn-info btn-small pull-right" href="modules/students/nodes/csv_unconfirmedusers.php"><i class="icon-file"></i> Export As CSV</a></p>
+					<div class="col-xs-3">
+						<input type="text" class="form-control search-query" id="unconfirmed_users_input" placeholder="Quick Filter">
+					</div>
+					<div class="col-xs-9">
+						<p><a class="btn btn-info btn-small pull-right" href="modules/students/nodes/csv_unconfirmedusers.php"><i class="icon-file"></i> Export As CSV</a></p>
+					</div>
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
@@ -114,7 +134,7 @@ $courses = Courses::find_all();
 							<th width="8%">Options</th>
 						</tr>
 						</thead>
-						<tbody>
+						<tbody id="unconfirmed_users_list">
 						<?php
 						foreach($unconfirmed AS $user) {
 							$course = Courses::find_by_uid($user->course_code);
@@ -325,3 +345,5 @@ $('#inputDate').datepicker({
 	startView: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate)); ?>'
 });
 </script>
+
+<script src="js/jquery.fastLiveFilter.js"></script>
