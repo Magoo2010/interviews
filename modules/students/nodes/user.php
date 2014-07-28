@@ -129,33 +129,17 @@ $specificCourse = Courses::find_by_uid($user->course_code);
 						</div>
 					</div>
 					<hr />
-					<?php
-					if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
-						$output  = "<div class=\"form-group\">";
-						$output .= "<label for=\"inputStudentLocationType\" class=\"col-lg-2 control-label\">Student Location Type</label>";
-						$output .= "<div class=\"col-lg-10\">";
-						$output .= "<select class=\"form-control\" id=\"inputStudentLocationType\">";
-						
-						$array = array("Home", "EU", "Overseas");
-						
-						foreach ($array AS $ar) {
-							if ($ar == $user->location_type) {
-								$output .= "<option selected value=\"" . $ar . "\">" . $ar . "</option>";
-
-							} else {
-								$output .= "<option value=\"" . $ar . "\">" . $ar . "</option>";
-							}
-						}
-						$output .= "</select>";
-						$output .= "</div>";
-
-						$output .= "</div>";
-						$output .= "<hr />";
-						
-						echo $output;
-					}
-					?>
-					
+					<div class="form-group">
+						<label for="inputStudentLocationType" class="col-lg-2 control-label">Student Location Type</label>
+						<div class="col-lg-10">
+							<select class="form-control" id="inputStudentLocationType" <?php if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) { echo " disabled"; }?>>
+								<option value="Home" <?php if ($user->location_type == "Home") { echo " selected"; }?>>Home</option>
+								<option value="EU" <?php if ($user->location_type == "EU") { echo " selected"; }?>>EU</option>
+								<option value="Overseas" <?php if ($user->location_type == "Overseas") { echo " selected"; }?>>Overseas</option>
+							</select>
+						</div>
+					</div>
+					<hr />
 					<div class="form-group">
 						<label for="inputAdd1" class="col-lg-2 control-label">Address Line 1</label>
 						<div class="col-lg-10">
@@ -284,7 +268,14 @@ $specificCourse = Courses::find_by_uid($user->course_code);
 					</div>
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
-							<button type="submit" class="btn btn-primary btn-block" id="updateUserButton">Submit</button>
+							<?php
+							if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
+								echo "<button type=\"submit\" class=\"btn btn-primary btn-block\" id=\"updateUserButtonAdmin\">Admin Submit</button>";
+							} else {
+								echo "<button type=\"submit\" class=\"btn btn-primary btn-block\" id=\"updateUserButtonUser\">Submit</button>";
+							}
+							?>
+							
 							<input type="hidden" id="userUID" value="<?php echo $user->uid; ?>">
 							<p class="lead">If you have any problems with this site please email <a href="mailto:admissions@seh.ox.ac.uk">admissions@seh.ox.ac.uk</a></p>
 						</div>
