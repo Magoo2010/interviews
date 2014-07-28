@@ -16,7 +16,7 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 
 <?php
 $confirmed = Students::find_all_confirmed();
-$courses = Courses::find_all();
+$courses = Courses::find_all_in_use();
 
 ?>
 <div class="row">

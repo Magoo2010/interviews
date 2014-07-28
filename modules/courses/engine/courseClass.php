@@ -64,6 +64,18 @@ class Courses {
 		return $results;
 	}
 	
+	public static function find_all_in_use() {
+		global $database;
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE uid IN (SELECT DISTINCT(course_code) FROM auth) ";
+		$sql .= "ORDER BY name ASC";
+		
+		$results = self::find_by_sql($sql);
+		
+		return $results;
+	}
+	
 	public function displayName() {
 		$output  = $this->name;
 		$output .= " (" . $this->code . ")";
