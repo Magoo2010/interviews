@@ -7,7 +7,7 @@ class Students {
 	public $title;
 	public $forenames;
 	public $surname;
-	public $course;
+	public $course_code;
 	public $add1;
 	public $add2;
 	public $add3;
@@ -88,7 +88,7 @@ class Students {
 		global $database;
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
-		$sql .= "ORDER BY course ASC, surname ASC";
+		$sql .= "ORDER BY course_code ASC, surname ASC";
 		
 		$results = self::find_by_sql($sql);
 		
@@ -100,7 +100,7 @@ class Students {
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
 		$sql .= "WHERE confirmed_attendance = '1' ";
-		$sql .= "ORDER BY course ASC, surname ASC";
+		$sql .= "ORDER BY course_code ASC, surname ASC";
 		
 		$results = self::find_by_sql($sql);
 		
@@ -150,7 +150,7 @@ class Students {
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
 		$sql .= "WHERE confirmed_attendance = '1' ";
-		$sql .= "AND course = '" . $course . "' ";
+		$sql .= "AND course_code = '" . $course . "' ";
 		$sql .= "ORDER BY surname ASC";
 		
 		$results = self::find_by_sql($sql);
@@ -163,7 +163,7 @@ class Students {
 		
 		$sql  = "SELECT * FROM " . self::$table_name . " ";
 		$sql .= "WHERE confirmed_attendance <> '1' ";
-		$sql .= "ORDER BY course ASC, surname ASC";
+		$sql .= "ORDER BY course_code ASC, surname ASC";
 		
 		$results = self::find_by_sql($sql);
 		
@@ -279,13 +279,13 @@ class Students {
 		global $database;
 		
 		$sql  = "INSERT INTO " . self::$table_name . " (";
-		$sql .= "ucas, title, forenames, surname, course, add1, add2, add3, add4, add5, email, phone, skype, arrival_date, arrival_time, disability, diet, photograph, date_created, date_updated, confirmed_attendance, optout, location_type";
+		$sql .= "ucas, title, forenames, surname, course_code, add1, add2, add3, add4, add5, email, phone, skype, arrival_date, arrival_time, disability, diet, photograph, date_created, date_updated, confirmed_attendance, optout, location_type";
 		$sql .= ") VALUES ('";
 		$sql .= $database->escape_value($this->ucas) . "', '";
 		$sql .= $database->escape_value($this->title) . "', '";
 		$sql .= $database->escape_value($this->forenames) . "', '";
 		$sql .= $database->escape_value($this->surname) . "', '";
-		$sql .= $database->escape_value($this->course) . "', '";
+		$sql .= $database->escape_value($this->course_code) . "', '";
 		$sql .= $database->escape_value($this->add1) . "', '";
 		$sql .= $database->escape_value($this->add2) . "', '";
 		$sql .= $database->escape_value($this->add3) . "', '";

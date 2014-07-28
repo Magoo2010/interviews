@@ -44,6 +44,7 @@ if (isset($_FILES['fileInput']['name'])) {
 
 $user = Students::find_by_uid($_GET['studentUID']);
 $logs = Logs::find_by_user_uid($_GET['studentUID']);
+$courses = Courses::find_all();
 ?>
 <div class="row">
 	<div class="page-header">
@@ -106,16 +107,31 @@ $logs = Logs::find_by_user_uid($_GET['studentUID']);
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputCourse" class="col-lg-2 control-label">Course of Study</label>
+						<label for="inputCourseCode" class="col-lg-2 control-label">Course of Study</label>
 						<div class="col-lg-10">
-							<input type="text" class="form-control" id="inputCourse" placeholder="Course of Study" value="<?php echo $user->course; ?>">
+							<?php
+							$output = "<select class=\"form-control\" id=\"inputCourseCode\" >";
+							
+							foreach ($courses AS $course) {
+								if ($course->uid == $user->course_code) {
+									$selected = "selected";
+								} else {
+									$selected = "";
+								}
+								$output .= "<option value=\"" . $course->uid . "\" " . $selected . ">" . $course->displayName() . "</option>";
+							}
+							
+							$output .= "</select>";
+							
+							echo $output;
+							?>
 						</div>
 					</div>
 					<hr />
 					<?php
 					if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 						$output  = "<div class=\"form-group\">";
-						$output .= "<label for=\"inputCourse\" class=\"col-lg-2 control-label\">Student Location Type</label>";
+						$output .= "<label for=\"inputStudentLocationType\" class=\"col-lg-2 control-label\">Student Location Type</label>";
 						$output .= "<div class=\"col-lg-10\">";
 						$output .= "<select class=\"form-control\" id=\"inputStudentLocationType\">";
 						

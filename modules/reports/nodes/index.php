@@ -16,11 +16,8 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 
 <?php
 $confirmed = Students::find_all_confirmed();
+$courses = Courses::find_all();
 
-// Build list of subjects
-foreach ($confirmed AS $student) {
-	$courseList[$student->course] = $student->course;
-}
 ?>
 <div class="row">
 	<div class="col-lg-6">
@@ -28,12 +25,12 @@ foreach ($confirmed AS $student) {
 			<a data-toggle="dropdown" class="btn btn-primary btn-block" href="#">Candidates by Subject</a>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 				<?php
-				foreach ($courseList AS $course) {
-					$url = "pdfreport.php?n=candidatesBySubject.php&course=" . $course;
+				foreach ($courses AS $course) {
+					$url = "pdfreport.php?n=candidatesBySubject.php&course=" . $course->uid;
 					
 					$output  = "<li>";
 					$output .= "<a href=\"" . $url . "\">";
-					$output .= $course;
+					$output .= $course->displayName();
 					$output .= "</a>";
 					$output .= "</li>";
 					

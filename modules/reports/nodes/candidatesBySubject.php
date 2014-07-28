@@ -1,5 +1,7 @@
 <?php
 $confirmed = Students::find_all_confirmed_by_course($_GET['course']);
+$course = Courses::find_by_uid($_GET['course']);
+
 $pdf->SetFont("Times", 'B', 18);
 
 foreach ($confirmed AS $student) {
@@ -20,7 +22,7 @@ foreach ($confirmed AS $student) {
 $sets = array_chunk($studentArray, 3);
 
 $pdf->SetFont("Times", 'B', 18);
-$pdf->Cell(90, 5, $_GET['course'], 0, 1);
+$pdf->Cell(90, 5, $course->displayName(), 0, 1);
 
 $pdf->SetFont("Times", '', 14);
 /*

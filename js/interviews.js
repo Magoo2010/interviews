@@ -6,7 +6,7 @@ $("#createNewUserButton").click(function() {
 	var title = $("input#inputTitle").val();
 	var forenames = $("input#inputForenames").val();
 	var surname = $("input#inputSurname").val();
-	var course = $("input#inputCourse").val();
+	var course_code = $("select#inputCourseCode").val();
 	var location_type = $("select#inputStudentLocationType").val();
 	var add1 = $("input#inputAdd1").val();
 	var add2 = $("input#inputAdd2").val();
@@ -27,7 +27,6 @@ $("#createNewUserButton").click(function() {
 	} else {
 		var sendemail = "false";
 	}
-	
 	// url we're going to send the data to
 	var url = "modules/students/actions/create.php";
 	
@@ -36,7 +35,7 @@ $("#createNewUserButton").click(function() {
 		title: title,
 		forenames: forenames,
 		surname: surname,
-		course: course,
+		course_code: course_code,
 		location_type: location_type,
 		add1: add1,
 		add2: add2,
@@ -66,7 +65,7 @@ $("#updateUserButton").click(function() {
 	var title = $("input#inputTitle").val();
 	var forenames = $("input#inputForenames").val();
 	var surname = $("input#inputSurname").val();
-	var course = $("input#inputCourse").val();
+	var course_code = $("select#inputCourseCode").val();
 	var add1 = $("input#inputAdd1").val();
 	var add2 = $("input#inputAdd2").val();
 	var add3 = $("input#inputAdd3").val();
@@ -97,7 +96,7 @@ $("#updateUserButton").click(function() {
 		title: title,
 		forenames: forenames,
 		surname: surname,
-		course: course,
+		course_code: course_code,
 		add1: add1,
 		add2: add2,
 		add3: add3,

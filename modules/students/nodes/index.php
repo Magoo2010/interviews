@@ -10,6 +10,7 @@ $confirmed = Students::find_all_confirmed();
 $unconfirmed = Students::find_all_unconfirmed();
 
 $arrivalDates = interviewArrivalDates();
+$courses = Courses::find_all();
 ?>
 <div class="row">
 	<div class="span12">
@@ -47,10 +48,12 @@ $arrivalDates = interviewArrivalDates();
 						<tbody>
 						<?php
 						foreach($invitees AS $user) {
+							$course = Courses::find_by_uid($user->course_code);
+							
 							echo "<tr>";
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
-							echo "<td>" . $user->course . "</a></td>";
+							echo "<td>" . $course->displayName() . "</td>";
 							echo "<td class=\"visible-lg visible-md\">";
 							echo $user->datachecks();
 							echo "</td>";
@@ -84,10 +87,12 @@ $arrivalDates = interviewArrivalDates();
 						<tbody>
 						<?php
 						foreach($confirmed AS $user) {
+							$course = Courses::find_by_uid($user->course_code);
+							
 							echo "<tr>";
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
-							echo "<td>" . $user->course . "</a></td>";
+							echo "<td>" . $course->displayName() . "</a></td>";
 							echo "<td>" . $user->datachecks() . "</td>";
 							echo "<td>options</td>";
 							echo "</tr>";
@@ -112,10 +117,12 @@ $arrivalDates = interviewArrivalDates();
 						<tbody>
 						<?php
 						foreach($unconfirmed AS $user) {
+							$course = Courses::find_by_uid($user->course_code);
+							
 							echo "<tr>";
 							echo "<td>" . $user->ucas . "</td>";
 							echo "<td><a href=\"index.php?m=students&n=user.php&studentUID=" . $user->uid . "\">" . $user->fullDisplayName() . "</a></td>";
-							echo "<td>" . $user->course . "</a></td>";
+							echo "<td>" . $course->displayName() . "</a></td>";
 							echo "<td>" . $user->datachecks() . "</td>";
 							echo "<td>options</td>";
 							echo "</tr>";
@@ -154,7 +161,17 @@ $arrivalDates = interviewArrivalDates();
 					<div class="form-group">
 						<label class="col-lg-2 control-label" for="inputCourse">Course of Study</label>
 						<div class="col-lg-10">
-							<input type="text" class="form-control" id="inputCourse" placeholder="Course of Study">
+							<?php
+							$output = "<select class=\"form-control\" id=\"inputCourseCode\" >";
+							
+							foreach ($courses AS $course) {
+								$output .= "<option value=\"" . $course->uid . "\">" . $course->displayName() . "</option>";
+							}
+							
+							$output .= "</select>";
+							
+							echo $output;
+							?>
 						</div>
 					</div>
 					

@@ -13,12 +13,13 @@ $pdf->Cell(40, 5, "Notes/Room Number", 0, 1);
 $pdf->SetFont("Times", '', 12);
 // itterate through each course name
 foreach ($confirmed AS $student) {
+	$course = Courses::find_by_uid($student->course_code);
 	$arrivalDate = date('d/m/Y', strtotime($student->arrival_date)) . " " . date('H:i', strtotime($student->arrival_time));
 	
 	$pdf->Cell(33, 5, $arrivalDate, 0, 0);
 	$pdf->Cell(20, 5, $student->surname, 0, 0);
 	$pdf->Cell(30, 5, $student->forenames, 0, 0);
-	$pdf->Cell(70, 5, $student->course, 0, 0);
+	$pdf->Cell(70, 5, $course->displayName(), 0, 0);
 	$pdf->Cell(50, 5, $student->phone, 0, 0);
 	$pdf->Cell(40, 5, "", 0, 1);
 }
