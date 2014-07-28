@@ -95,6 +95,23 @@ class Courses {
 		
 		return $output;
 	}
+	
+	public function inlineUpdate($courseUID = NULL, $key, $value) {
+		global $database;
+		
+		$sql  = "UPDATE " . self::$table_name . " ";
+		$sql .= "SET " . $database->escape_value($key) . " = '" . $database->escape_value($value) . "' ";
+		$sql .= "WHERE uid = '" . $database->escape_value($courseUID) . "' ";
+		$sql .= "LIMIT 1";
+		
+		$results = self::find_by_sql($sql);
+		
+		$log = new Logs();
+		$log->type = "success";
+		$log->title = "Courses Update";
+		$log->description = "Course UID " . $this->uid . " was updated";
+		$log->create();
+	}
 }
 ?>
 

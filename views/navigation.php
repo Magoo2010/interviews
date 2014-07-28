@@ -31,6 +31,7 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="index.php?n=logon.php">Admin. Logon</a></li>
+						<li><a href="index.php?m=courses&n=index.php">Courses</a></li>
 						<li><a href="index.php?m=reports&n=index.php">Reports</a></li>
 						<li><a href="index.php?m=settings&n=email_admin.php">E-Mail Settings</a></li>
 						<li><a href="index.php?m=logs&n=index.php">Activity Logs</a></li>
