@@ -21,25 +21,26 @@ $courses = Courses::find_all_in_use();
 ?>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="dropdown">
-			<a data-toggle="dropdown" class="btn btn-primary btn-block" href="#">Candidates by Subject</a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<?php
-				foreach ($courses AS $course) {
-					$url = "pdfreport.php?n=candidatesBySubject.php&course=" . $course->uid;
-					
-					$output  = "<li>";
-					$output .= "<a href=\"" . $url . "\">";
-					$output .= $course->displayName();
-					$output .= "</a>";
-					$output .= "</li>";
-					
-					echo $output;
-				}
-				?>
-			</ul>
-		</div>
+		<h2>Candidates By Subject</h2>
+		<form action="pdfreport.php?n=candidatesBySubject.php" method="post">
+		<select class="multiselect" multiple="multiple" name="coursesSelected[]">
+			<?php
+			foreach ($courses AS $course) {
+				$url = "pdfreport.php?n=candidatesBySubject.php&course=" . $course->uid;
+				
+				$output  = "<option value=\"" . $course->uid . "\">";
+				$output .= $course->displayName();
+				$output .= "</option>";
+				
+				echo $output;
+			}
+			?>
+		</select>
+		<br />
+		<input type="submit" class="btn btn-primary btn-block" value="Candidates By Subject">
+		</form>
 		
+		<h2>Other</h2>
 		<a href="pdfreport.php?n=arrivals.php&orientation=L" class="btn btn-primary btn-block">Arrivals</a>
 		<a href="pdfreport.php?n=disability.php" class="btn btn-primary btn-block">Disability Report</a>
 		<a href="pdfreport.php?n=dietary.php" class="btn btn-primary btn-block">Dietary Report</a>
@@ -47,3 +48,10 @@ $courses = Courses::find_all_in_use();
 	<div class="col-lg-6">
 	</div>
 </div>
+ 
+<!-- Initialize the plugin: -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.multiselect').multiselect();
+  });
+</script>

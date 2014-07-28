@@ -10,6 +10,7 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-editable.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap-multiselect.js"></script>
 	<script src="js/interviews.js"></script>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -22,6 +23,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-editable.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="css/datepicker3.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-multiselect.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

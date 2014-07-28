@@ -1,8 +1,13 @@
 <?php
-$confirmed = Students::find_all_confirmed_by_course($_GET['course']);
-$course = Courses::find_by_uid($_GET['course']);
+$courses = Courses::find_by_multiple_uid($_POST['coursesSelected']);
 
 $pdf->SetAutoPageBreak(false);
+
+foreach ($courses AS $course) {
+	$confirmed = Students::find_all_confirmed_by_course($course->uid);
+	$studentArray = "";
+
+
 $pdf->SetFont("Times", 'B', 18);
 
 foreach ($confirmed AS $student) {
@@ -16,7 +21,7 @@ foreach ($confirmed AS $student) {
 		'photograph' => $photoURL,
 		'surname' => $student->surname,
 		'forenames' => $student->forenames,
-		'course' => $student->course
+		'course' => $student->course_code
 	);
 }
 
@@ -68,4 +73,9 @@ foreach ($sets as $set) {
 		$rowCounter = 0;
 	}
 }
+
+
+$pdf->AddPage();
+
+} // end foreach on $courses
 ?>

@@ -53,6 +53,19 @@ class Courses {
 		return !empty($results) ? array_shift($results) : false;
 	}
 	
+	public static function find_by_multiple_uid($uidArray = NULL) {
+		global $database;
+		
+		$uids = implode(",", $uidArray);
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE uid IN (" . $uids . ")";
+		
+		$results = self::find_by_sql($sql);
+		
+		return $results;
+	}
+	
 	public static function find_all() {
 		global $database;
 		
