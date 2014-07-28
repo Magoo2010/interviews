@@ -252,7 +252,7 @@ $courses = Courses::find_all();
 						<label class="col-lg-2 control-label" for="inputDate">I shall arrive in Oxford on</label>
 						<div class="col-lg-10">
 							<input class="form-control" type="text" id="inputDate" value="<?php echo date('Y/m/d');?>">
-							USE THIS TO SUGEST TO STUDENTS
+							<span class="help-block">This date will limit date selections to +/- 5 days for the students.</span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -318,4 +318,10 @@ $courses = Courses::find_all();
 	</div>
 </div>
 
-
+<script>
+$('#inputDate').datepicker({
+	format: "yyyy/mm/dd",
+	todayBtn: true,
+	startView: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate)); ?>'
+});
+</script>
