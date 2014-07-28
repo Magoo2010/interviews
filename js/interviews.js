@@ -179,12 +179,4 @@ $(".deleteUserButton").click(function() {
 	
 	return false;
 });
-
-
-$('#inputDate').datepicker({
-	format: "yyyy/mm/dd",
-	todayBtn: true,
-	startDate: "today"
-});
-
 });

@@ -45,6 +45,7 @@ if (isset($_FILES['fileInput']['name'])) {
 $user = Students::find_by_uid($_GET['studentUID']);
 $logs = Logs::find_by_user_uid($_GET['studentUID']);
 $courses = Courses::find_all();
+$specificCourse = Courses::find_by_uid($user->course_code);
 ?>
 <div class="row">
 	<div class="page-header">
@@ -341,7 +342,21 @@ $(function () {
 	$('#myTab a:first').tab('show');
 })
 
-$('.datepicker').datepicker();
+/*
+$('#inputDate').datepicker({
+	format: "yyyy/mm/dd",
+	startDate: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate . "+5 days")); ?>',
+    endDate: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate . "-5 days")); ?>'
+});
+*/
+
+$('#inputDate').datepicker({
+	format: "yyyy/mm/dd",
+	todayBtn: true,
+	startView: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate)); ?>',
+	startDate: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate . "-5 days")); ?>',
+    endDate: '<?php echo date('Y/m/d', strtotime($specificCourse->interview_startdate . "+5 days")); ?>'
+});
 
 $("#inputSkype").keyup(function() {
 	$(function () {
