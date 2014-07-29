@@ -272,7 +272,11 @@ $specificCourse = Courses::find_by_uid($user->course_code);
 							if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 								echo "<button type=\"submit\" class=\"btn btn-primary btn-block\" id=\"updateUserButtonAdmin\">Admin Submit</button>";
 							} else {
-								echo "<button type=\"submit\" class=\"btn btn-primary btn-block\" id=\"updateUserButtonUser\">Submit</button>";
+								if ($user->confirmed_attendance == 1) {
+									echo "<button disabled type=\"submit\" class=\"btn btn-primary btn-block\" id=\"updateUserButtonUser\">You have already submitted your data</button>";
+								} else {
+									echo "<button type=\"submit\" class=\"btn btn-primary btn-block\" id=\"updateUserButtonUser\">Submit</button>";
+								}
 							}
 							?>
 							

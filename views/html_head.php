@@ -8,7 +8,7 @@
 	
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-editable.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/bootstrap-multiselect.js"></script>
 	<script src="js/interviews.js"></script>
@@ -21,7 +21,7 @@
 	<meta name="googlebot" content="noarchive" />
 	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-editable.css" />
+	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" media="all" href="css/datepicker3.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-multiselect.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
