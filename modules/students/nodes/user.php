@@ -65,6 +65,7 @@ $specificCourse = Courses::find_by_uid($user->course_code);
 		<div class="control-group">
 			<br /><input type="submit" class="btn btn-small btn-primary btn-block" id="test" value="Upload Photograph" />
 			<p class="help-block">Please upload a passport-style photo of yourself. Photos should be in colour and should show a close-up of your full head and shoulders. It must be only of you with no other objects or people, and should be unaltered by computer software.</p>
+			<a href="#" id="example" class="btn btn-default btn-block btn-xs" rel="popover" data-placement="top" data-content="To facilitate the administration of the Admissions process it is useful for the college to hold a photo of each candidate. This is not mandatory and you are free to opt-out." data-original title="Why am I being asked for a photo?">Why am I being asked for a photo?</a>
 		</div>
 		</form>
 	</div>
@@ -333,6 +334,10 @@ $specificCourse = Courses::find_by_uid($user->course_code);
 </div>
 
 <script>
+$(function () {
+	$('#example').popover();
+});
+
 $(function () {
 	$('#myTab a:first').tab('show');
 })
