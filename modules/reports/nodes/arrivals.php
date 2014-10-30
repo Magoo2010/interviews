@@ -14,7 +14,7 @@ $pdf->SetFont("Times", '', 12);
 // itterate through each course name
 foreach ($confirmed AS $student) {
 	$course = Courses::find_by_uid($student->course_code);
-	$arrivalDate = date('d/m/Y', strtotime($student->arrival_date)) . " " . date('H:i', strtotime($student->arrival_time));
+	$arrivalDate = date('j M Y', strtotime($student->arrival_date)) . " " . date('H:i', strtotime($student->arrival_time));
 	
 	$pdf->Cell(33, 5, $arrivalDate, 0, 0);
 	$pdf->Cell(20, 5, $student->surname, 0, 0);
