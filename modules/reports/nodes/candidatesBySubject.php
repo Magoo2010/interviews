@@ -14,7 +14,7 @@ foreach ($confirmed AS $student) {
 	if (isset($student->photograph) && $student->photograph != "") {
 		$photoURL = "uploads/" . $student->photograph;
 	} else {
-		$photoURL = "null";
+		$photoURL = "img/no_user_photo.png";
 	}
 	
 	$studentArray[] = array(
