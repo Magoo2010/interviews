@@ -112,6 +112,22 @@ class Courses {
 		$log->description = "Course UID " . $this->uid . " was updated";
 		$log->create();
 	}
+	
+	function is_in_use() {
+		global $database;
+		
+		$sql  = "SELECT * FROM auth ";
+		$sql .= "WHERE course_code = '" . $this->uid . "'";
+		
+		$results = self::find_by_sql($sql);
+		
+		if (count($results) > 0) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 }
 ?>
 

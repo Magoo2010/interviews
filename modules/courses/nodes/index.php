@@ -15,7 +15,7 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 
 
 <?php
-$courses = Courses::find_all_in_use();
+$courses = Courses::find_all();
 
 ?>
 
@@ -32,7 +32,12 @@ $courses = Courses::find_all_in_use();
 		
 		<?php
 		foreach ($courses AS $course) {
-			$output  = "<tr>";
+			if ($course->is_in_use()) {
+				$output = "<tr class=\"success\">";
+			} else {
+				$output = "<tr>";
+			}
+			
 			$output .= "<td>" . "<a href=\"#\" id=\"code\" class=\"editable\" data-type=\"text\" data-pk=\"" . $course->uid . "\" data-url=\"modules/courses/actions/update.php\" data-title=\"Enter Course Code\">" . $course->code . "</a></td>";
 			$output .= "<td>" . "<a href=\"#\" id=\"name\" class=\"editable\" data-type=\"text\" data-pk=\"" . $course->uid . "\" data-url=\"modules/courses/actions/update.php\" data-title=\"Enter Course Name\">" . $course->name . "</a></td>";
 			$output .= "<td>" . "<a href=\"#\" id=\"interview_startdate\" class=\"editable\" data-type=\"date\" data-pk=\"" . $course->uid . "\" data-url=\"modules/courses/actions/update.php\" data-title=\"Enter Interview Start Date\">" . $course->interview_startdate . "</a></td>";
