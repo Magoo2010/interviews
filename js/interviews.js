@@ -22,6 +22,7 @@ $("#createNewUserButton").click(function() {
 	var diet = $("textarea#inputDiet").val();
 	var optout = $("input#inputOptOut").val();
 	
+	
 	if ($("input#sendEmail").is(':checked')) {
 		var sendemail = "true";
 	} else {
