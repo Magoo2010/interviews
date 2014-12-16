@@ -11,8 +11,12 @@ foreach ($courses AS $course) {
 $pdf->SetFont("Times", 'B', 18);
 
 foreach ($confirmed AS $student) {
-	if (isset($student->photograph) && $student->photograph != "") {
-		$photoURL = "uploads/" . $student->photograph;
+	if (isset($student->photograph) && $student->photograph != "" && !is_null($student->photograph)) {
+		if (file_exists("uploads/" . $student->photograph)) {
+			$photoURL = "uploads/" . $student->photograph;
+		} else {
+			$photoURL = "img/no_user_photo.png";
+		}
 	} else {
 		$photoURL = "img/no_user_photo.png";
 	}
