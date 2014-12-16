@@ -1,16 +1,10 @@
 <?php
-$courses = Courses::find_by_multiple_uid($_POST['coursesSelected']);
+$students = Students::find_all_with_skype();
 
 $pdf->SetAutoPageBreak(false);
-
-foreach ($courses AS $course) {
-	$confirmed = Students::find_all_confirmed_by_course($course->uid);
-	$studentArray = "";
-
-
 $pdf->SetFont("Times", 'B', 18);
 
-foreach ($confirmed AS $student) {
+foreach ($students AS $student) {
 	if (isset($student->photograph) && $student->photograph != "" && !is_null($student->photograph)) {
 		if (file_exists("uploads/" . $student->photograph)) {
 			$photoURL = "uploads/" . $student->photograph;
@@ -21,27 +15,27 @@ foreach ($confirmed AS $student) {
 		$photoURL = "img/no_user_photo.png";
 	}
 	
+	$course = Courses::find_by_uid($student->course_code);
+	
 	$studentArray[] = array(
 		'photograph' => $photoURL,
 		'surname' => $student->surname,
 		'forenames' => $student->forenames,
-		'course' => $student->course_code
+		'course' => $course->displayName(),
+		'email' => $student->email,
+		'skype' => $student->skype,
+		'phone' => $student->phone
 	);
 }
 
 $sets = array_chunk($studentArray, 3);
 
 $pdf->SetFont("Times", 'B', 18);
-$pdf->Cell(0, 10, $course->displayName(), 0, 1);
+$pdf->Cell(0, 10, "Skype Candidates", 0, 1);
 $pdf->Cell(0, 10, "", 0, 1);
 
 $pdf->SetFont("Times", '', 14);
-/*
-foreach ($confirmed AS $student) {
-	$pdf->Image($student->imageURL(),null,null,30);
-	$pdf->Cell(90, 5, $student->fullDisplayName(), 0, 1);
-}
-*/
+
 $rowCounter = 0;
 
 foreach ($sets as $set) {
@@ -65,21 +59,28 @@ foreach ($sets as $set) {
 	$pdf->Cell(65, 5, $set[1]['surname'] . ", " . $set[1]['forenames'], 0, 0, 'C', false);
 	$pdf->Cell(65, 5, $set[2]['surname'] . ", " . $set[2]['forenames'], 0, 1, 'C', false);
 	$pdf->Ln();
-	$pdf->Cell(65, 5, $set[0]['photograph'], 0, 0, 'C', false);
-	$pdf->Cell(65, 5, $set[1]['photograph'], 0, 0, 'C', false);
-	$pdf->Cell(65, 5, $set[2]['photograph'], 0, 1, 'C', false);
+	$pdf->Cell(65, 3, $set[0]['course'], 0, 0, 'C', false);
+	$pdf->Cell(65, 3, $set[1]['course'], 0, 0, 'C', false);
+	$pdf->Cell(65, 3, $set[2]['course'], 0, 1, 'C', false);
+	$pdf->Ln();
+	$pdf->Cell(65, 3, $set[0]['email'], 0, 0, 'C', false);
+	$pdf->Cell(65, 3, $set[1]['email'], 0, 0, 'C', false);
+	$pdf->Cell(65, 3, $set[2]['email'], 0, 1, 'C', false);
+	$pdf->Ln();
+	$pdf->Cell(65, 3, "Skype: " . $set[0]['skype'], 0, 0, 'C', false);
+	$pdf->Cell(65, 3, "Skype: " . $set[1]['skype'], 0, 0, 'C', false);
+	$pdf->Cell(65, 3, "Skype: " . $set[2]['skype'], 0, 1, 'C', false);
+	$pdf->Ln();
+	$pdf->Cell(65, 5, $set[0]['phone'], 0, 0, 'C', false);
+	$pdf->Cell(65, 5, $set[1]['phone'], 0, 0, 'C', false);
+	$pdf->Cell(65, 5, $set[2]['phone'], 0, 1, 'C', false);
 	$pdf->Ln();
 	
 	$rowCounter = $rowCounter + 1;
 	
-	if ($rowCounter >= '4') {
+	if ($rowCounter >= '3') {
 		$pdf->AddPage();
 		$rowCounter = 0;
 	}
 }
-
-
-$pdf->AddPage();
-
-} // end foreach on $courses
 ?>

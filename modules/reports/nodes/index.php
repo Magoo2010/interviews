@@ -44,6 +44,7 @@ $courses = Courses::find_all_in_use();
 		<a href="pdfreport.php?n=arrivals.php&orientation=L" class="btn btn-primary btn-block">Arrivals</a>
 		<a href="pdfreport.php?n=disability.php" class="btn btn-primary btn-block">Disability Report</a>
 		<a href="pdfreport.php?n=dietary.php" class="btn btn-primary btn-block">Dietary Report</a>
+		<a href="pdfreport.php?n=skype.php" class="btn btn-primary btn-block">Skype Candidates</a>
 	</div>
 	<div class="col-lg-6">
 	</div>
