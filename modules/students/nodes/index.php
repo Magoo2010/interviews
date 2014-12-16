@@ -5,6 +5,7 @@ if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
 	
 	exit;
 }
+
 $invitees = Students::find_all_invitees();
 $confirmed = Students::find_all_confirmed();
 $unconfirmed = Students::find_all_unconfirmed();

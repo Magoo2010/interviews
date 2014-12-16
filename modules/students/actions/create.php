@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/engine/initialise.php');
+require_once('../../../engine/initialise.php');
 $user = new Students();
 
 //printArray($_POST);
