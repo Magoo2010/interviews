@@ -133,6 +133,18 @@ class Students {
 		return $results;
 	}
 	
+	public static function find_all_with_skype() {
+		global $database;
+		
+		$sql  = "SELECT * FROM " . self::$table_name . " ";
+		$sql .= "WHERE skype IS NOT NULL AND skype <> '' ";
+		$sql .= "ORDER BY arrival_date DESC, arrival_time DESC";
+		
+		$results = self::find_by_sql($sql);
+		
+		return $results;
+	}
+	
 	public static function find_all_confirmed_by_arrival_date() {
 		global $database;
 		
@@ -217,6 +229,15 @@ class Students {
 			$output = $pathToFile;
 		}
 		
+		$exif = exif_read_data($pathToFile);
+		//print_r($exif);
+		
+		if(isset($exif['Orientation'])&& $exif['Orientation'] == '6'){
+			//echo "The image is rotated";// So do something with the image
+		} else {
+			//echo "?";
+		}
+
 		return $output;
 	}
 	
