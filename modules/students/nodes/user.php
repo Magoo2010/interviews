@@ -74,7 +74,7 @@ $specificCourse = Courses::find_by_uid($user->course_code);
 			<li class="active"><a href="#details" data-toggle="tab">Student Details</a></li>
 			<li><a href="#logs" data-toggle="tab">Logs</a></li>
 			<?php if (isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
-						echo "<a href=\"pdfreport.php?n=student_summary.php&orientation=L&userUID=" . $user->uid . "\" class=\"btn btn-primary pull-right\" role=\"button\"><span class=\"glyphicon glyphicon-file\" aria-hidden=\"true\"></span> Export as PDF</a>";
+						echo "<a href=\"pdfreport.php?n=student_summary.php&userUID=" . $user->uid . "\" class=\"btn btn-primary pull-right\" role=\"button\"><span class=\"glyphicon glyphicon-file\" aria-hidden=\"true\"></span> Export as PDF</a>";
 					}
 			?>
 		</ul>
