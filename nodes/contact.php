@@ -55,7 +55,7 @@
 		<p>The College has no parking facilities for visitors, so we strongly recommend that you travel by public transport wherever possible.</p>
 		
 		<h2>By coach/bus</h2>
-		<p>Both the major bus companies in Oxford, the Oxford Tube and Oxford Express, run frequent coach services from London Victoria. Ask the driver to drop you at the Queen's Lane/High Street bus stop, which is opposite the College.</p>
+		<p>Both the major bus companies in Oxford, the Oxford Tube and X90, run frequent coach services from London Victoria. Ask the driver to drop you at the Queen's Lane/High Street bus stop, which is opposite the College.</p>
 		<p>For visitors from overseas, the Airline bus service offers frequent coach services from London Heathrow and London Gatwick airports. These also stop at Queen's Lane, right by the College.</p>
 		<p>Oxford is well served by National Express coach services from all over the country.</p>
 		
