@@ -96,6 +96,18 @@ class Courses {
 		return $output;
 	}
 	
+	public function displayShortName() {
+		if (strlen($this->name) >= 28) {
+			$output  = substr($this->name, 0, 28) . "...";
+		} else {
+			$output  = $this->name;
+		}
+		
+		$output .= " (" . $this->code . ")";
+		
+		return $output;
+	}
+	
 	public function inlineUpdate($courseUID = NULL, $key, $value) {
 		global $database;
 		

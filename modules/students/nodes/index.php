@@ -321,7 +321,7 @@ $(function() {
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
 							<div class="checkbox">
-								<label><input type="checkbox" id="sendEmail" checked value="true">E-Mail candidate confirmation letter</label>
+								<label><input type="checkbox" id="sendEmail" value="true">E-Mail candidate confirmation letter</label>
 							</div>
 						</div>
 					</div>

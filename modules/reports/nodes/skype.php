@@ -21,7 +21,7 @@ foreach ($students AS $student) {
 		'photograph' => $photoURL,
 		'surname' => $student->surname,
 		'forenames' => $student->forenames,
-		'course' => $course->displayName(),
+		'course' => $course->displayShortName(),
 		'email' => $student->email,
 		'skype' => $student->skype,
 		'phone' => $student->phone
@@ -34,7 +34,7 @@ $pdf->SetFont("Times", 'B', 18);
 $pdf->Cell(0, 10, "Skype Candidates", 0, 1);
 $pdf->Cell(0, 10, "", 0, 1);
 
-$pdf->SetFont("Times", '', 14);
+$pdf->SetFont("Times", '', 11);
 
 $rowCounter = 0;
 
