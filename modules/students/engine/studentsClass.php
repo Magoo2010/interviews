@@ -229,14 +229,7 @@ class Students {
 			$output = $pathToFile;
 		}
 		
-		$exif = exif_read_data($pathToFile);
-		//print_r($exif);
-		
-		if(isset($exif['Orientation'])&& $exif['Orientation'] == '6'){
-			//echo "The image is rotated";// So do something with the image
-		} else {
-			//echo "?";
-		}
+		adjustPicOrientation($pathToFile);
 
 		return $output;
 	}
