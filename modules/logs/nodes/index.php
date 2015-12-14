@@ -1,4 +1,11 @@
 <?php
+if (!isset($_SESSION['userinfo'][0]['samaccountname'][0])) {
+	$redir = "Location: http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/index.php?n=logon.php";
+	header($redir);
+	
+	exit;
+}
+
 $allLogs = Logs::find_all();
 
 ?>
