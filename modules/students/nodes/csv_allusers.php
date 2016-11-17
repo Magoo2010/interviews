@@ -1,5 +1,5 @@
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . 'engine/initialise.php');
+<?php 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/engine/initialise.php');
 
 $studentClass = new Students();
 $invitees = $studentClass->find_all_invitees();
